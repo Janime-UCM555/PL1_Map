@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+public class movement : MonoBehaviour
+{
+    public Transform m_transform;
+    public Transform m_target;
+    public float _movementspeed ;
+    public Vector3 _movementdirection;
+    
+   
+    public float cronometro;
+   
+
+
+    public void Comportamientoenemigo()
+    {
+        cronometro += 1 * Time.deltaTime;
+        if (cronometro >= 4)
+        {                    
+                m_transform.Translate(_movementdirection * _movementspeed* Time.deltaTime);     
+            cronometro = 0;
+        }
+       
+    
+
+
+
+        
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        m_transform = GetComponent<Transform>();
+        _movementdirection = m_target.position - m_transform.position;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        _movementdirection = m_target.position - m_transform.position;
+        Comportamientoenemigo();
+
+    }
+}
