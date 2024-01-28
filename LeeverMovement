@@ -1,0 +1,44 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
+using UnityEngine;
+
+public class movement : MonoBehaviour
+{
+    public Transform m_transform;
+    public Transform m_target;
+    public float _movementspeed = 3;
+    public Vector3 _movementdirection;
+    
+    public int x;
+    
+    
+ 
+
+
+    public void Comportamientoenemigo()
+    {
+        if (m_target.position.x > m_transform.position.x)
+        {
+            x = 1;
+        }
+        else if (m_target.position.x < m_transform.position.x)
+        {
+            x = -1;
+        }       
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        m_transform = GetComponent<Transform>();
+        Comportamientoenemigo();
+      
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+       m_transform.Translate(_movementdirection = new Vector3(x, 0, 0) * _movementspeed * Time.deltaTime);
+    }
+}
