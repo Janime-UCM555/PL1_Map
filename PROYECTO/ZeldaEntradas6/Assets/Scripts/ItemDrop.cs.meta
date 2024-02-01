@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 88ce6f8ecbb5dc041b549574f299748d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rupeePrefab: {fileID: 1192899495301548171, guid: 23ab829da69f7fd4e9645d7e6edf7e19, type: 3}
+  - heartPrefab: {fileID: 7249858182669834711, guid: 7c51ecadc6f1c6f48b3f3d333b892925, type: 3}
+  - bombPrefab: {fileID: 1449208818773200424, guid: c8265230128b3f549b8005a3c607084b, type: 3}
+  - fairyPrefab: {fileID: 6418803857685514303, guid: 8f95d69175276994c96befe510419ee5, type: 3}
+  - clockPrefab: {fileID: 8969810126560254631, guid: b8a029c0207fe524b99875f27b16b701, type: 3}
+  - rupeex5Prefab: {fileID: 5028830550814401258, guid: 75296ce5bda408e439d6136c06730bac, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
