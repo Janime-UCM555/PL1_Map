@@ -9,7 +9,9 @@ public class movement : MonoBehaviour
     public Transform m_target;
     public float _movementspeed ;
     public Vector3 _movementdirection;
-    
+    public int rotation;
+    public Quaternion grado;
+    public int rutina 
    
     public float cronometro;
    
@@ -20,13 +22,18 @@ public class movement : MonoBehaviour
         cronometro += 1 * Time.deltaTime;
         if (cronometro >= 4)
         {                    
-                m_transform.Translate(_movementdirection * _movementspeed* Time.deltaTime);     
-            cronometro = 0;
+             rutina = Random.Range(0,2);
+               cronometro = 0
+       switch (rutina) {
+        case 1:  
+         rotation= Random.Range(0,361)
+        rutina++;
+        break;
+       case 2 :
+          m_transform.rotation= Quaternion.Euler(0,rotation,0);
+          m_transform.Translate(Vector3.right * _movementspeed * Time.deltaTime
         }
-       
-    
-
-
+ 
 
         
     }
@@ -34,13 +41,13 @@ public class movement : MonoBehaviour
     void Start()
     {
         m_transform = GetComponent<Transform>();
-        _movementdirection = m_target.position - m_transform.position;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        _movementdirection = m_target.position - m_transform.position;
+       
         Comportamientoenemigo();
 
     }
