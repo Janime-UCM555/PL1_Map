@@ -31,6 +31,14 @@ public class OcktorokAttack : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         Vector3 directionToPlayer = (_targetTransform.position - transform.position).normalized;
+       if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.y))
+        {
+            directionToPlayer.y = 0f;
+        }
+        else
+        {
+            directionToPlayer.x = 0f;
+        }
 
    
         bullet.GetComponent<ProjectileComponent>().Setup(directionToPlayer);
