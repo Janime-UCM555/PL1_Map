@@ -12,6 +12,9 @@ public class OcktorokMovement : MonoBehaviour
     public float cronometro;
     public float grado;
 
+    [SerializeField]
+    private LayerMask colision;
+
     private bool _stopToShoot = false;
 
     public void StopToShoot()
@@ -27,11 +30,18 @@ public class OcktorokMovement : MonoBehaviour
         _movementspeed = 5;
     }
 
-
+    private bool isWalkable(Vector3 targetPosition)
+    {
+        if (Physics2D.OverlapCircle(targetPosition, 1.0f, colision) != null) return false;
+        else return true;
+    }
 
 
     public void Comportamientoenemigo()
     {
+
+        float gradoactual = 0;
+
         cronometro += 1 * Time.deltaTime;
         if (cronometro >= 2)
         {
@@ -42,33 +52,38 @@ public class OcktorokMovement : MonoBehaviour
         {
 
             case 1:
-
+                gradoactual = grado;
                 grado = Random.Range(0, 4);
+               
                 rutina++;
                 break;
             case 2:
+                
+                while (grado == gradoactual) grado = Random.Range(0, 4);
                 switch (grado)
                 {
-                    case 0:
-                        m_transform.Translate(_movementdirection = new Vector3(-1, 0, 0) * _movementspeed * Time.deltaTime);
 
+                    case 0:
+
+                        _movementdirection = new Vector3(-1, 0, 0) * _movementspeed * Time.deltaTime;
                         break;
 
                     case 1:
 
-                        m_transform.Translate(_movementdirection = new Vector3(0, 1, 0) * _movementspeed * Time.deltaTime);
+                        _movementdirection = new Vector3(0, 1, 0) * _movementspeed * Time.deltaTime;
                         break;
                     case 2:
 
-                        m_transform.Translate(_movementdirection = new Vector3(0, -1, 0) * _movementspeed * Time.deltaTime);
+                        _movementdirection = new Vector3(0, -1, 0) * _movementspeed * Time.deltaTime;
                         break;
                     case 3:
 
-                        m_transform.Translate(_movementdirection = new Vector3(1, 0, 0) * _movementspeed * Time.deltaTime);
+                        _movementdirection = new Vector3(1, 0, 0) * _movementspeed * Time.deltaTime;
                         break;
 
 
                 }
+                if (isWalkable(_movementdirection + m_transform.position)) m_transform.Translate(_movementdirection);
                 break;
 
 
