@@ -12,7 +12,20 @@ public class MoblinMovement : MonoBehaviour
     public float cronometro;
     public float grado;
 
+    private bool _stopToShoot = false;
 
+    public void StopToShoot()
+    {
+        _stopToShoot = true;
+        _movementspeed = 0;
+
+    }
+
+    public void NotStopToShoot()
+    {
+        _stopToShoot = false;
+        _movementspeed = 5;
+    }
     public void Comportamientoenemigo()
     {
         cronometro += 1 * Time.deltaTime;

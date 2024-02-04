@@ -13,6 +13,7 @@ public class LinkMovement : MonoBehaviour
     public float SpeedValue = 2f;
     private Rigidbody2D _myRigidBody;
     private Transform _myTransform;
+    private bool disableMov = false;
 
     [SerializeField] private AttackComponent _attackComponent;
     [SerializeField] private Collider2D _swordCollider;
@@ -42,11 +43,7 @@ public class LinkMovement : MonoBehaviour
         _movement.enabled = false;
         _myRigidBody.velocity = Vector3.zero;
         _attackComponent.SummonSword();
-
-        GetComponent<ItemDrop>().Drop(0);
-        //Lo he puesto aqui para probar. Despues hay que poner esto en un enemy script con una variable serialize field para poder indicar el tipo de enemigo en unity
     }
-
     public void AttackEnds()
     {
         this.enabled = true;

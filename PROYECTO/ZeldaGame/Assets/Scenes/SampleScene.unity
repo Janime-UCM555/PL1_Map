@@ -40982,6 +40982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredTime: 2
+  Link: {fileID: 603777536}
 --- !u!1 &603777536
 GameObject:
   m_ObjectHideFlags: 0
@@ -40998,7 +40999,6 @@ GameObject:
   - component: {fileID: 603777543}
   - component: {fileID: 603777544}
   - component: {fileID: 603777545}
-  - component: {fileID: 603777546}
   m_Layer: 0
   m_Name: Link
   m_TagString: Untagged
@@ -41176,7 +41176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackComponent: {fileID: 980320991}
-  nomov: 0
+  MainCamera: {fileID: 519420028}
 --- !u!95 &603777544
 Animator:
   serializedVersion: 5
@@ -41212,24 +41212,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttacking: 0
   _SwordSpriteRenderer: {fileID: 980320989}
---- !u!114 &603777546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603777536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ce6f8ecbb5dc041b549574f299748d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rupeePrefab: {fileID: 1192899495301548171, guid: 23ab829da69f7fd4e9645d7e6edf7e19, type: 3}
-  heartPrefab: {fileID: 7249858182669834711, guid: 7c51ecadc6f1c6f48b3f3d333b892925, type: 3}
-  bombPrefab: {fileID: 1449208818773200424, guid: c8265230128b3f549b8005a3c607084b, type: 3}
-  fairyPrefab: {fileID: 6418803857685514303, guid: 8f95d69175276994c96befe510419ee5, type: 3}
-  clockPrefab: {fileID: 8969810126560254631, guid: b8a029c0207fe524b99875f27b16b701, type: 3}
-  rupeex5Prefab: {fileID: 5028830550814401258, guid: 75296ce5bda408e439d6136c06730bac, type: 3}
 --- !u!1 &917923642
 GameObject:
   m_ObjectHideFlags: 0
@@ -41240,11 +41222,12 @@ GameObject:
   m_Component:
   - component: {fileID: 917923644}
   - component: {fileID: 917923643}
-  - component: {fileID: 917923645}
   - component: {fileID: 917923647}
-  - component: {fileID: 917923648}
   - component: {fileID: 917923649}
   - component: {fileID: 917923650}
+  - component: {fileID: 917923648}
+  - component: {fileID: 917923652}
+  - component: {fileID: 917923651}
   m_Layer: 11
   m_Name: Ocktorok
   m_TagString: Untagged
@@ -41319,23 +41302,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &917923645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917923642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65c11dd710b7e6c4dbc149f9739da423, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8498090972268378230, guid: a10a1faf97c81374781bac724ee12d90, type: 3}
-  _ocktorokMovement: {fileID: 917923648}
-  _targetTransform: {fileID: 603777542}
-  stopDistance: 6
-  reloadBullet: 1.5
 --- !u!58 &917923647
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -41451,6 +41417,45 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.61
+--- !u!114 &917923651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917923642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ce6f8ecbb5dc041b549574f299748d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rupeePrefab: {fileID: 1192899495301548171, guid: 23ab829da69f7fd4e9645d7e6edf7e19, type: 3}
+  heartPrefab: {fileID: 7249858182669834711, guid: 7c51ecadc6f1c6f48b3f3d333b892925, type: 3}
+  bombPrefab: {fileID: 1449208818773200424, guid: c8265230128b3f549b8005a3c607084b, type: 3}
+  fairyPrefab: {fileID: 6418803857685514303, guid: 8f95d69175276994c96befe510419ee5, type: 3}
+  clockPrefab: {fileID: 8969810126560254631, guid: b8a029c0207fe524b99875f27b16b701, type: 3}
+  rupeex5Prefab: {fileID: 5028830550814401258, guid: 75296ce5bda408e439d6136c06730bac, type: 3}
+--- !u!114 &917923652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917923642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb896a7d776f9bb41aea723abf697971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8498090972268378230, guid: a10a1faf97c81374781bac724ee12d90, type: 3}
+  _ocktorokMovement: {fileID: 917923648}
+  _targetTransform: {fileID: 603777542}
+  "da\xF1o": 1
+  vida: 2
+  droptType: 1
+  stopDistance: 10
+  reloadBullet: 2
+  shootTime: 1
 --- !u!1 &980320987
 GameObject:
   m_ObjectHideFlags: 0
@@ -42037,6 +42042,8 @@ GameObject:
   - component: {fileID: 1708759037}
   - component: {fileID: 1708759036}
   - component: {fileID: 1708759035}
+  - component: {fileID: 1708759039}
+  - component: {fileID: 1708759038}
   m_Layer: 0
   m_Name: Moblin
   m_TagString: Untagged
@@ -42129,6 +42136,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1708759038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708759034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ce6f8ecbb5dc041b549574f299748d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rupeePrefab: {fileID: 1192899495301548171, guid: 23ab829da69f7fd4e9645d7e6edf7e19, type: 3}
+  heartPrefab: {fileID: 7249858182669834711, guid: 7c51ecadc6f1c6f48b3f3d333b892925, type: 3}
+  bombPrefab: {fileID: 1449208818773200424, guid: c8265230128b3f549b8005a3c607084b, type: 3}
+  fairyPrefab: {fileID: 6418803857685514303, guid: 8f95d69175276994c96befe510419ee5, type: 3}
+  clockPrefab: {fileID: 8969810126560254631, guid: b8a029c0207fe524b99875f27b16b701, type: 3}
+  rupeex5Prefab: {fileID: 5028830550814401258, guid: 75296ce5bda408e439d6136c06730bac, type: 3}
+--- !u!114 &1708759039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708759034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f54fabcfa6bee4b8b4f0a297d6429e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8498090972268378230, guid: a10a1faf97c81374781bac724ee12d90, type: 3}
+  _moblinMovement: {fileID: 1708759035}
+  _targetTransform: {fileID: 603777542}
+  "da\xF1o": 1
+  vida: 2
+  droptType: 1
+  stopDistance: 10
+  reloadBullet: 2
+  shootTime: 1
 --- !u!1001 &1747335753
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,7 +7,29 @@ public class LinkInput : MonoBehaviour
     private LinkMovement _linkMovement;
     [SerializeField] private AttackComponent _attackComponent;
     private AnimatorComponent _myAnimator;
-    public bool nomov;
+    private bool isInputEnabled = true;
+    private bool isMoving;
+
+    [SerializeField]
+    private GameObject MainCamera;
+
+    public void DisableInput()
+    {
+        isInputEnabled = false;
+    }
+    public void EnableInput()
+    {
+        isInputEnabled = true;
+    }
+
+    public void StopMoving(float elapsedTime)
+    {
+        if (elapsedTime > 0.5f && isInputEnabled != true)
+        {
+            _linkMovement.RegisterX(0);
+            _linkMovement.RegisterY(0);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -19,18 +41,30 @@ public class LinkInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _linkMovement.RegisterX(Input.GetAxisRaw("Horizontal"));
-        _linkMovement.RegisterY(Input.GetAxisRaw("Vertical"));
-        if (Input.GetKeyDown(KeyCode.Space))
+        isMoving = MainCamera.gameObject.GetComponent<CameraMovement>().IsMoving();
+        Debug.Log(isMoving);
+        if (!isMoving)
         {
-            _myAnimator.isAttacking = true;
-
+            EnableInput();
         }
         else
         {
-            _myAnimator.isAttacking = false;
-
+            DisableInput();
         }
+        if (isInputEnabled)
+        {
+            _linkMovement.RegisterX(Input.GetAxisRaw("Horizontal"));
+            _linkMovement.RegisterY(Input.GetAxisRaw("Vertical"));
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _myAnimator.isAttacking = true;
 
+            }
+            else
+            {
+                _myAnimator.isAttacking = false;
+
+            }
+        }  
     }
 }

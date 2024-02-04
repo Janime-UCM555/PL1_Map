@@ -18,9 +18,7 @@ public class GameManager : MonoBehaviour
     private CameraMovement _camera;
     public void MoveCamera()
     {
-        //Desactivar input
         _camera.Move();
-        //Mueve a link
     }
     public void EnterRoom()
     {
