@@ -44255,6 +44255,9 @@ MonoBehaviour:
   _directionVector: {x: 0, y: 0, z: 0}
   _movementVector: {x: 0, y: 0, z: 0}
   SpeedValue: 7
+  _bombComponent: {fileID: 1471630880}
+  _bombPrefab: {fileID: 1000054968159726878, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+  _bombClone: {fileID: 0}
   _attackComponent: {fileID: 980320991}
   _swordCollider: {fileID: 980320990}
   _swordSprite: {fileID: 980320989}
@@ -44383,6 +44386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackComponent: {fileID: 980320991}
+  swordAttack: 0
+  placesBomb: 0
   MainCamera: {fileID: 519420028}
 --- !u!95 &603777544
 Animator:
@@ -44394,7 +44399,7 @@ Animator:
   m_GameObject: {fileID: 603777536}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b2cd647440a91fa408941dcc0241cf3e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0587ae3b44192ca4698ab765a282f495, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -44418,6 +44423,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAttacking: 0
+  isDead: 0
+  takesDamage: 0
+  placeBomb: 0
   _SwordSpriteRenderer: {fileID: 980320989}
 --- !u!1 &778164253
 GameObject:
@@ -44506,7 +44514,6 @@ GameObject:
   - component: {fileID: 917923643}
   - component: {fileID: 917923647}
   - component: {fileID: 917923649}
-  - component: {fileID: 917923650}
   - component: {fileID: 917923648}
   - component: {fileID: 917923652}
   - component: {fileID: 917923651}
@@ -44667,41 +44674,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &917923650
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917923642}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.61
 --- !u!114 &917923651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44741,6 +44713,75 @@ MonoBehaviour:
   stopDistance: 10
   reloadBullet: 2
   shootTime: 1
+--- !u!1001 &920743901
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1000054968159726878, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: m_Name
+      value: BombaSprite_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923253272947219139, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923253272947219139, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923253272947219139, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923253272947219139, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923253272947219139, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923253272947219139, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923253272947219139, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923253272947219139, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923253272947219139, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923253272947219139, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682843195165209717, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: _movement
+      value: 
+      objectReference: {fileID: 603777539}
+    - target: {fileID: 6682843195165209717, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: _bombPrefab
+      value: 
+      objectReference: {fileID: 1000054968159726878, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+    - target: {fileID: 6682843195165209717, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+      propertyPath: _targetTransform
+      value: 
+      objectReference: {fileID: 603777542}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
 --- !u!1001 &978577797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45421,6 +45462,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1471630880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6682843195165209717, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+  m_PrefabInstance: {fileID: 920743901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca670b1f915cf64c82d7c1e591792db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1513335373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123484,3 +123536,4 @@ SceneRoots:
   - {fileID: 978577797}
   - {fileID: 226134512}
   - {fileID: 1465129487}
+  - {fileID: 920743901}

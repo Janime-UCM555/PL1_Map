@@ -7,6 +7,8 @@ public class LinkInput : MonoBehaviour
     private LinkMovement _linkMovement;
     [SerializeField] private AttackComponent _attackComponent;
     private AnimatorComponent _myAnimator;
+    public bool swordAttack = false;
+    public bool placesBomb = false;
     private bool isInputEnabled = true;
     private bool isMoving;
 
@@ -55,16 +57,28 @@ public class LinkInput : MonoBehaviour
         {
             _linkMovement.RegisterX(Input.GetAxisRaw("Horizontal"));
             _linkMovement.RegisterY(Input.GetAxisRaw("Vertical"));
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _myAnimator.isAttacking = true;
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    swordAttack = true;
+
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                _myAnimator.placeBomb = true;
 
             }
             else
             {
                 _myAnimator.isAttacking = false;
-
+                swordAttack = false;
+                _myAnimator.placeBomb = false;
             }
-        }  
+
+        }
     }
 }

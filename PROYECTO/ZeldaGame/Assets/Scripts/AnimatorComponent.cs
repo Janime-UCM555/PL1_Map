@@ -8,6 +8,9 @@ public class AnimatorComponent : MonoBehaviour
     private Animator mAnimator;
     private SpriteRenderer mRenderer;
     public bool isAttacking = false;
+    public bool isDead = false;
+    public bool takesDamage = false;
+    public bool placeBomb = false;
     private Rigidbody2D mRigidbody;
     private LinkMovement mLinkMovement;
     private SpriteRenderer _mSprite;
@@ -48,5 +51,14 @@ public class AnimatorComponent : MonoBehaviour
         {
             mAnimator.SetInteger("AnimState", 1);
         }
+        if (takesDamage)
+        {
+            mAnimator.SetInteger("Animstate", 4);
+        }
+        if (placeBomb)
+        {
+            mAnimator.SetInteger("AnimState", 3);
+        }
+
     }
 }

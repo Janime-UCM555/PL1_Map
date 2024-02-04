@@ -54,7 +54,7 @@ public class OcktorokAttack : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter(Collision2D collision)
+    public void OnTriggerEnter(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<AttackComponent>() != null)
         {
@@ -71,10 +71,6 @@ public class OcktorokAttack : MonoBehaviour
 
         }
         imune = 1;
-
-
-
-
     }
     #endregion
     void Start()

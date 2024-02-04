@@ -11,6 +11,9 @@ public class LinkMovement : MonoBehaviour
     public Vector3 _directionVector;
     public Vector3 _movementVector;
     public float SpeedValue = 2f;
+    [SerializeField] private BombComponent _bombComponent;
+    [SerializeField] private GameObject _bombPrefab;
+    public GameObject _bombClone;
     private Rigidbody2D _myRigidBody;
     private Transform _myTransform;
     private bool disableMov = false;
@@ -49,6 +52,17 @@ public class LinkMovement : MonoBehaviour
         this.enabled = true;
         _swordCollider.enabled = false;
         _swordSprite.enabled = false;
+    }
+    public void PlaceBomb()
+    {
+        _bombComponent.PlaceBomb();
+        _movement.enabled = false;
+        _myRigidBody.velocity = Vector3.zero;
+
+    }
+    public void BombPlaced()
+    {
+        _movement.enabled = true;
     }
     void Awake()
     {
