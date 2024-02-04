@@ -22,7 +22,7 @@ public class CameraMovement : MonoBehaviour
     {
         x = LinkMovement.Link.GetComponent<Rigidbody2D>().velocity.normalized.x;
         y = LinkMovement.Link.GetComponent<Rigidbody2D>().velocity.normalized.y; ;
-        if (targetPosition == initialPosition) targetPosition = initialPosition + Vector3.right * 32 * x + Vector3.up * 10 * y;
+        if (targetPosition == initialPosition) targetPosition = initialPosition + Vector3.right * 32 * x + Vector3.up * 20 * y;
         elapsedTime = 0f;
         isMoving = true;
     }

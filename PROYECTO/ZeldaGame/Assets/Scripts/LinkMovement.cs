@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LinkMovement : MonoBehaviour
 {
-    private Vector3 room = new Vector3(-27, -6, 0);
+    private Vector3 room = new Vector3(-26, -14, 0);
     private float _xvalue;
     private float _yvalue;
     public Vector3 _directionVector;
