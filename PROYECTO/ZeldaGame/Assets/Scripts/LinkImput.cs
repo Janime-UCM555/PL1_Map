@@ -44,7 +44,6 @@ public class LinkInput : MonoBehaviour
     void Update()
     {
         isMoving = MainCamera.gameObject.GetComponent<CameraMovement>().IsMoving();
-        Debug.Log(isMoving);
         if (!isMoving)
         {
             EnableInput();

@@ -44183,7 +44183,7 @@ MonoBehaviour:
   SpeedValue: 7
   _bombComponent: {fileID: 1471630880}
   _bombPrefab: {fileID: 1000054968159726878, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
-  _bombClone: {fileID: 0}
+  _bombClone: {fileID: 1448725890}
   _attackComponent: {fileID: 980320991}
   _swordCollider: {fileID: 980320990}
   _swordSprite: {fileID: 980320989}
@@ -44378,7 +44378,6 @@ GameObject:
   - component: {fileID: 917923644}
   - component: {fileID: 917923643}
   - component: {fileID: 917923647}
-  - component: {fileID: 917923649}
   - component: {fileID: 917923648}
   - component: {fileID: 917923652}
   - component: {fileID: 917923651}
@@ -44490,7 +44489,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.61
+  m_Radius: 0.4
 --- !u!114 &917923648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44512,33 +44511,6 @@ MonoBehaviour:
   colision:
     serializedVersion: 2
     m_Bits: 256
---- !u!50 &917923649
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917923642}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &917923651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45220,6 +45192,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193791757}
   m_CullTransparentMesh: 1
+--- !u!1 &1448725890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000054968159726878, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
+  m_PrefabInstance: {fileID: 920743901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1465129483
 GameObject:
   m_ObjectHideFlags: 0
@@ -45332,7 +45309,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6682843195165209717, guid: 3215b825314311c4fae0d1f0ed917c17, type: 3}
   m_PrefabInstance: {fileID: 920743901}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1448725890}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eca670b1f915cf64c82d7c1e591792db, type: 3}

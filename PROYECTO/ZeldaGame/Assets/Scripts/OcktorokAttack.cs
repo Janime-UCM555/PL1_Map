@@ -54,13 +54,13 @@ public class OcktorokAttack : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.GetComponent<AttackComponent>() != null)
+        if (collider.gameObject.GetComponent<AttackComponent>() != null)
         {
             if (imune > 0)
             {
-                vida -= daño;
+                vida--;
                 if (vida <= 0)
                 {
                     Destroy(this, 3f);

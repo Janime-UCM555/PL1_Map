@@ -55,7 +55,6 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Debug.Log(elapsedTime);
         if (isMoving)
         {
             elapsedTime += Time.deltaTime;

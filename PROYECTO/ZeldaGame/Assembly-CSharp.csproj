@@ -61,11 +61,13 @@
     <Compile Include="Assets\Scripts\AnimatorComponent.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\BombComponent.cs" />
+    <Compile Include="Assets\Scripts\LifeComponent.cs" />
     <Compile Include="Assets\Scripts\EnterTrigger.cs" />
     <Compile Include="Assets\Scripts\LinkMovement.cs" />
     <Compile Include="Assets\Scripts\ProjectileComponent.cs" />
     <Compile Include="Assets\Scripts\SwordComponent.cs" />
     <Compile Include="Assets\Scripts\HealthUp.cs" />
+    <Compile Include="Assets\Scripts\LifeBarComponenet.cs" />
     <Compile Include="Assets\Scripts\LinkImput.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LinkHealth.cs" />
