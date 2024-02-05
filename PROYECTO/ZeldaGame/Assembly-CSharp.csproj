@@ -63,49 +63,49 @@
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\BombComponent.cs" />
     <Compile Include="Assets\Scripts\EnterTrigger.cs" />
-    <Compile Include="Assets\UI\ScriptsUI\LifeBarComponenet.cs" />
+    <Compile Include="Assets\Scripts\UI\ScriptsUI\UIManager.cs" />
     <Compile Include="Assets\Scripts\LinkMovement.cs" />
     <Compile Include="Assets\Scripts\ProjectileComponent.cs" />
     <Compile Include="Assets\Scripts\SwordComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\ScriptsUI\ShopItem.cs" />
     <Compile Include="Assets\Scripts\HealthUp.cs" />
+    <Compile Include="Assets\Scripts\UI\ScriptsUI\CoinComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\ScriptsUI\LifeComponent.cs" />
     <Compile Include="Assets\Scripts\LinkImput.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LinkHealth.cs" />
     <Compile Include="Assets\Scripts\ExitTrigger.cs" />
     <Compile Include="Assets\Scripts\CameraTrigger.cs" />
-    <Compile Include="Assets\UI\ScriptsUI\CoinComponent.cs" />
     <Compile Include="Assets\Scripts\OcktorokMovement.cs" />
     <Compile Include="Assets\Scripts\MoblinAttack.cs" />
     <Compile Include="Assets\Scripts\ShootingComponent.cs" />
     <Compile Include="Assets\Scripts\ItemDrop.cs" />
-    <Compile Include="Assets\UI\ScriptsUI\ShopItem.cs" />
     <Compile Include="Assets\Scripts\MoblinMovement.cs" />
-    <Compile Include="Assets\UI\ScriptsUI\UIManager.cs" />
-    <Compile Include="Assets\UI\ScriptsUI\LifeComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\ScriptsUI\LifeBarComponenet.cs" />
     <Compile Include="Assets\Scripts\OcktorokAttack.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\UI\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Scripts\UI\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -362,6 +362,15 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.GradleProject">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

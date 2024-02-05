@@ -19,7 +19,7 @@ public class AnimatorComponent : MonoBehaviour
     Color colorsprite;
     [SerializeField]
     private float desiredtime = 3.0f;
-    private float elapsedtime = 0.0f;
+    public float elapsedtime = 0.0f;
     public void LinkEzquizo()
     {
         elapsedtime = 0f;

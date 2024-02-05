@@ -11,9 +11,13 @@ public class OcktorokMovement : MonoBehaviour
     public int rutina;
     public float cronometro;
     public float grado;
-
+    private SpriteRenderer _spriteRenderer;
     [SerializeField]
     private LayerMask colision;
+    private ShootingComponent _shooting;
+    private Vector3 directionToPlayer;
+    [SerializeField] private Transform _targetTransform;
+    private Animator _myAnimator;
 
     private bool _stopToShoot = false;
 
@@ -92,12 +96,38 @@ public class OcktorokMovement : MonoBehaviour
     void Start()
     {
         m_transform = GetComponent<Transform>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _shooting = GetComponent<ShootingComponent>();
+        _myAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-         Comportamientoenemigo();
+        directionToPlayer = (_targetTransform.position - transform.position).normalized;
+        Comportamientoenemigo();
+        if (directionToPlayer.y > 0)
+        {
+            _spriteRenderer.flipY= true;
+            _myAnimator.SetBool("Lateral", false);
+        }
+        else if (directionToPlayer.y == 0 ||directionToPlayer.y < 0)
+        {
+            _spriteRenderer.flipY= false;
+            _myAnimator.SetBool("Lateral", false);
+        }
+        if (directionToPlayer.x > 0)
+        {
+            _myAnimator.SetBool("Lateral", true);
+            _spriteRenderer.flipX= true;
+        }
+        else if (directionToPlayer.x < 0)
+        {
+            _myAnimator.SetBool("Lateral", true);
+            _spriteRenderer.flipX = false;
+
+        }
+        
     }
 }
 
