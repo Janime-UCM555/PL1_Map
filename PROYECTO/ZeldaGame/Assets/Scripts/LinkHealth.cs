@@ -26,8 +26,9 @@ public class LinkHealth : MonoBehaviour
     {
         _movement.enabled = false;
         _input.enabled = false;
-        _animator.isDead = true;
+        //_animator.isDead = true;
        OnPlayerDeath?.Invoke();
+        GameManager.Game.LoadScene();
     }
 
     public void TakesDamage()

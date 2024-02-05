@@ -12,7 +12,7 @@ public class OcktorokAttack : MonoBehaviour
     private Transform _myTransform;
     [SerializeField]
     private OcktorokMovement _ocktorokMovement;
-    [SerializeField]
+
     private Transform _targetTransform;
     #endregion   
     [SerializeField]
@@ -81,6 +81,7 @@ public class OcktorokAttack : MonoBehaviour
     {
         _myTransform = transform;
         _ocktorokMovement = GetComponent<OcktorokMovement>();
+        _targetTransform = LinkMovement.Link.GetComponent<Transform>();
     }
 
     void Update()

@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    #region parameters
-    private int Hearts = 3;
-    #endregion
+    private int Hearts;
 
     static private GameManager _game;
     static public GameManager Game
@@ -59,7 +57,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
