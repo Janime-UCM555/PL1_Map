@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ShopItemComponent : MonoBehaviour
 {
     public delegate void RestaRupia(int rupia);
     public static event RestaRupia restaRupia;
-    [SerializeField] public int precio;
-    [SerializeField] private GameObject _shopItem;
+    [SerializeField] private int precio;
+    [SerializeField] public int identificadorTienda;
+    [SerializeField] private TMP_Text textoPrecio;
     public UIManager _uiManager;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,13 +23,11 @@ public class ShopItemComponent : MonoBehaviour
                 {
                     RestaRupias();
                     Destroy(this.gameObject);
-                    _uiManager.QuitarTexto();
-                    _uiManager.PonerSpriteBomba(true);
+                    Destroy(textoPrecio); 
+                    _uiManager.PonerSprite(identificadorTienda);
                 }
             }
-        }
-        
-        
+        }  
     }
     private void RestaRupias()
     {
