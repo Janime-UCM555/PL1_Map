@@ -8,10 +8,10 @@ public class CoinComponent : MonoBehaviour
     public delegate void SumaRupia(int rupia);
     public static event SumaRupia sumaRupia;
     [SerializeField] private int cantidadRupias;
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        LinkMovement player = other.gameObject.GetComponent<LinkMovement>();
-        if(player != null) 
+        LinkMovement player = collision.gameObject.GetComponent<LinkMovement>();
+        if (player != null)
         {
             if (sumaRupia != null)
             {
@@ -24,5 +24,5 @@ public class CoinComponent : MonoBehaviour
     {
         sumaRupia(cantidadRupias);
     }
-    
+
 }

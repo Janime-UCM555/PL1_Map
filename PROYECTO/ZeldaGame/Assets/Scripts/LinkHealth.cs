@@ -36,6 +36,7 @@ public class LinkHealth : MonoBehaviour
         {
             health--;
             _animator.takesDamage = true;
+            _movement.TakesDamages();
             OnPlayerDamaged?.Invoke();
         }
         
@@ -50,6 +51,7 @@ public class LinkHealth : MonoBehaviour
         { 
             elapsedtime = 0;
             _animator.takesDamage = false;
+            _input.enabled = true;
         }
         if (health <= 0)
         {

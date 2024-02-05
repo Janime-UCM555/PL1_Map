@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TreeEditor;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class LinkMovement : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class LinkMovement : MonoBehaviour
     [SerializeField] private AttackComponent _attackComponent;
     [SerializeField] private Collider2D _swordCollider;
     [SerializeField] private SpriteRenderer _swordSprite;
+    private LinkInput linkInput;
+    private Vector3 vector3 = new Vector3();
+    public float empuje;
 
     static private LinkMovement _movement;
     static public LinkMovement Link { get { return _movement; } }
@@ -65,6 +69,22 @@ public class LinkMovement : MonoBehaviour
     {
         _movement.enabled = true;
     }
+
+    public void TakesDamages() 
+    {
+        _xvalue = 0;
+        _yvalue = 0;
+        linkInput.enabled = false;
+    }
+    public void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.GetComponent<ProjectileComponent>() != null)
+        {
+            vector3 = collider2D.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * empuje * SpeedValue;
+            _myRigidBody.velocity = vector3;
+        }
+    }
+
     void Awake()
     {
         _myRigidBody = GetComponent<Rigidbody2D>();
@@ -74,6 +94,7 @@ public class LinkMovement : MonoBehaviour
     private void Start()
     {
         _myTransform = transform;
+        linkInput = GetComponent<LinkInput>();
     }
     void FixedUpdate()
     {
@@ -86,7 +107,8 @@ public class LinkMovement : MonoBehaviour
             _xvalue = 0;
         }
         _directionVector = new Vector3(_xvalue, _yvalue);
-        _movementVector = SpeedValue * _directionVector;
+        _movementVector = (SpeedValue * _directionVector) + (vector3 * SpeedValue * empuje);
         _myRigidBody.velocity = _movementVector;
+        vector3 = Vector3.zero;
     }
 }

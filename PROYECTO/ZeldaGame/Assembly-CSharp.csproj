@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\MoblinAttack.cs" />
     <Compile Include="Assets\Scripts\ShootingComponent.cs" />
     <Compile Include="Assets\Scripts\ItemDrop.cs" />
+    <Compile Include="Assets\UI\ScriptsUI\ShopItem.cs" />
     <Compile Include="Assets\Scripts\MoblinMovement.cs" />
     <Compile Include="Assets\UI\ScriptsUI\UIManager.cs" />
     <Compile Include="Assets\Scripts\OcktorokAttack.cs" />

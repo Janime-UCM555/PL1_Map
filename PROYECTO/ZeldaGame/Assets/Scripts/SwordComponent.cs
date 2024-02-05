@@ -19,7 +19,7 @@ public class AttackComponent : MonoBehaviour
     [SerializeField] private LinkMovement _movement;
     private Collider2D _collider;
     private Quaternion _Rotation;
-    private Vector3 _lastMovement;
+    public Vector3 _lastMovement;
     private Vector3 _OriginalPosition;
 
     // Start is called before the first frame update

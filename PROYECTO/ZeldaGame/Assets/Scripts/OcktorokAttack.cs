@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static UnityEditor.MaterialProperty;
 
@@ -68,6 +69,10 @@ public class OcktorokAttack : MonoBehaviour
                 else { imune -= 1 * Time.deltaTime; }
             }
 
+        }
+        else if (collider.gameObject.GetComponent<LinkHealth>() != null) 
+        {
+            collider.gameObject.GetComponent<LinkHealth>().TakesDamage();
         }
         imune = 1;
     }
