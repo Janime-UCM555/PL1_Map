@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
 
         Destroy(textoPrecio);
     }
-    public void PonerSpriteBomba(int newState)
+    public void PonerSprite(int newState)
     {
        switch (newState)
         {
@@ -52,7 +52,7 @@ public class UIManager : MonoBehaviour
             spriteBomba.SetActive(true);
             break;
             case 1:
-            spriteFlecha.SetActive(true);
+            //spriteFlecha.SetActive(true);
             break;
             case 2:
             Debug.Log("No hay objeto que poner");

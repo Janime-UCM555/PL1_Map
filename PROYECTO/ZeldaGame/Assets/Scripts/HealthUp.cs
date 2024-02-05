@@ -6,7 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public LifeBarComponenet _lifeBar;
-    public PlayerHealth _health;
+    public Health _health;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         LinkMovement player = collision.GetComponent<LinkMovement>();
