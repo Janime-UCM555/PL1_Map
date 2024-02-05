@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    /*public LifeBarComponenet _lifeBar;
+    public LifeBarComponenet _lifeBar;
     public PlayerHealth _health;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,5 +16,4 @@ public class Health : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    */
 }
