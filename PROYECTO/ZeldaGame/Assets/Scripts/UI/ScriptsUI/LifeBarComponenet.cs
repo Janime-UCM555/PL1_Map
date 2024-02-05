@@ -6,17 +6,17 @@ using UnityEngine;
 public class LifeBarComponenet : MonoBehaviour
 {
     public GameObject healthPrefab;
-    public PlayerHealth playerHealth;
+    public LinkHealth playerHealth;
     public Health _healthUP;
     List<LifeComponent> hearts= new List<LifeComponent> ();
     private void OnEnable()
     {
-         PlayerHealth.OnPlayerDamaged += DrawHearts;
+         LinkHealth.OnPlayerDamaged += DrawHearts;
 
     }
     private void OnDisable()
     {
-        PlayerHealth.OnPlayerDamaged -= DrawHearts;      
+        LinkHealth.OnPlayerDamaged -= DrawHearts;      
     }
     public void DrawHearts()
     {
