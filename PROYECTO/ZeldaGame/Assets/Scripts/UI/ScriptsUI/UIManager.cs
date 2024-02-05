@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
 
         Destroy(textoPrecio);
     }
-    public void PonerSpriteBomba(int newState)
+    public void PonerSprite(int newState)
     {
        switch (newState)
         {
