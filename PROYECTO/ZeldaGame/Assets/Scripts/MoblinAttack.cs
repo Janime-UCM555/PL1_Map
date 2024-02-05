@@ -35,7 +35,6 @@ public class MoblinAttack : MonoBehaviour
     //Instancia de la bala
     public void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         Vector3 directionToPlayer = (_targetTransform.position - transform.position).normalized;
         if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.y))
         {
@@ -45,15 +44,9 @@ public class MoblinAttack : MonoBehaviour
         {
             directionToPlayer.x = 0f;
         }
-
-
-        bullet.GetComponent<ProjectileComponent>().Setup(directionToPlayer);
-
-        Destroy(bullet, 5f);
-
     }
 
-    public void OnCollisionEnter(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<AttackComponent>() != null)
         {
@@ -62,8 +55,8 @@ public class MoblinAttack : MonoBehaviour
                 vida -= daño;
                 if (vida <= 0)
                 {
-                    Destroy(this, 3f);
                     GetComponent<ItemDrop>().Drop(droptType);
+                    Destroy(gameObject);
                 }
                 else { imune -= 1 * Time.deltaTime; }
             }

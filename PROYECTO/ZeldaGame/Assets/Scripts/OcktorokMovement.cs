@@ -58,8 +58,6 @@ public class OcktorokMovement : MonoBehaviour
                 rutina++;
                 break;
             case 2:
-                
-                while (grado == gradoactual) grado = Random.Range(0, 4);
                 switch (grado)
                 {
 

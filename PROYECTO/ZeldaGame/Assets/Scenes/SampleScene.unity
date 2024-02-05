@@ -44132,7 +44132,7 @@ GameObject:
   - component: {fileID: 603777544}
   - component: {fileID: 603777545}
   - component: {fileID: 603777546}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Link
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44353,6 +44353,7 @@ MonoBehaviour:
   takesDamage: 0
   placeBomb: 0
   _SwordSpriteRenderer: {fileID: 980320989}
+  desiredtime: 3
 --- !u!114 &603777546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44449,7 +44450,7 @@ Transform:
   m_GameObject: {fileID: 917923642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.08, y: -8.2, z: 0}
+  m_LocalPosition: {x: 2.41, y: -3.01, z: 0}
   m_LocalScale: {x: 1.6110336, y: 1.6110336, z: 1.6110336}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44688,7 +44689,8 @@ GameObject:
   - component: {fileID: 980320991}
   - component: {fileID: 980320990}
   - component: {fileID: 980320989}
-  m_Layer: 0
+  - component: {fileID: 980320992}
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44794,7 +44796,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3, y: -0.03}
+  m_Offset: {x: 0.5, y: -0.03}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -44805,7 +44807,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 1.3, y: 0.7}
   m_EdgeRadius: 0
 --- !u!114 &980320991
 MonoBehaviour:
@@ -44825,6 +44827,33 @@ MonoBehaviour:
   VerX: 0.2
   VerY: 1.2
   _movement: {fileID: 603777539}
+--- !u!50 &980320992
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980320987}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &987081032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45755,6 +45784,9 @@ MonoBehaviour:
   rutina: 0
   cronometro: 0
   grado: 0
+  colision:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &1708759036
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -60,6 +60,7 @@ public class LinkMovement : MonoBehaviour
         _myRigidBody.velocity = Vector3.zero;
 
     }
+   
     public void BombPlaced()
     {
         _movement.enabled = true;

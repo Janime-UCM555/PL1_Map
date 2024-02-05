@@ -49,8 +49,7 @@ public class OcktorokAttack : MonoBehaviour
 
 
         bullet.GetComponent<ProjectileComponent>().Setup(directionToPlayer);
-
-        Destroy(bullet, 5f);
+        //Destroy(bullet, 5f);
 
     }
 
@@ -63,8 +62,8 @@ public class OcktorokAttack : MonoBehaviour
                 vida--;
                 if (vida <= 0)
                 {
-                    Destroy(this, 3f);
                     GetComponent<ItemDrop>().Drop(droptType);
+                    Destroy(gameObject);
                 }
                 else { imune -= 1 * Time.deltaTime; }
             }

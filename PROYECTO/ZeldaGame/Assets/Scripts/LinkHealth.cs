@@ -11,6 +11,8 @@ public class LinkHealth : MonoBehaviour
     private LinkMovement _movement;
     private LinkInput _input;
     private AnimatorComponent _animator;
+    private float desiredtime = 3.0f;
+    private float elapsedtime = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,16 +32,25 @@ public class LinkHealth : MonoBehaviour
 
     public void TakesDamage()
     {
-        health--;
-        _animator.takesDamage = true;
-        _animator.takesDamage = false;
-        OnPlayerDamaged?.Invoke();
+        if (!_animator.takesDamage) 
+        {
+            health--;
+            _animator.takesDamage = true;
+            OnPlayerDamaged?.Invoke();
+        }
+        
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        if (elapsedtime <= desiredtime) elapsedtime += Time.deltaTime;
+        else 
+        { 
+            elapsedtime = 0;
+            _animator.takesDamage = false;
+        }
         if (health <= 0)
         {
             LinkMuere();

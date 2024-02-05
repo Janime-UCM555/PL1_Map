@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+
 public class ProjectileComponent : MonoBehaviour
 {
     #region parameters
@@ -35,6 +37,11 @@ public class ProjectileComponent : MonoBehaviour
     public void Setup(Vector2 direction)
     {
         _speed = new Vector3(direction.x, direction.y, 0).normalized * _speedValue;
+    }
+    public void OnTriggerEnter2D(Collider2D collider2D) 
+    {
+        if (collider2D.gameObject.GetComponent<TilemapCollider2D>() != null) { Destroy(gameObject); }
+        else if(collider2D.gameObject.GetComponent<LinkHealth>() != null) { Destroy(gameObject); collider2D.gameObject.GetComponent<LinkHealth>().TakesDamage(); }
     }
     #endregion
 

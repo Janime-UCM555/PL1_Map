@@ -11,6 +11,8 @@ public class MoblinMovement : MonoBehaviour
     public int rutina;
     public float cronometro;
     public float grado;
+    [SerializeField]
+    private LayerMask colision;
 
     private bool _stopToShoot = false;
 
@@ -45,31 +47,38 @@ public class MoblinMovement : MonoBehaviour
             case 2:
                 switch (grado)
                 {
-                    case 0:
-                        m_transform.Translate(_movementdirection = new Vector3(-1, 0, 0) * _movementspeed * Time.deltaTime);
 
+
+                    case 0:
+
+                        _movementdirection = new Vector3(-1, 0, 0) * _movementspeed * Time.deltaTime;
                         break;
 
                     case 1:
 
-                        m_transform.Translate(_movementdirection = new Vector3(0, 1, 0) * _movementspeed * Time.deltaTime);
+                        _movementdirection = new Vector3(0, 1, 0) * _movementspeed * Time.deltaTime;
                         break;
                     case 2:
 
-                        m_transform.Translate(_movementdirection = new Vector3(0, -1, 0) * _movementspeed * Time.deltaTime);
+                        _movementdirection = new Vector3(0, -1, 0) * _movementspeed * Time.deltaTime;
                         break;
                     case 3:
 
-                        m_transform.Translate(_movementdirection = new Vector3(1, 0, 0) * _movementspeed * Time.deltaTime);
+                        _movementdirection = new Vector3(1, 0, 0) * _movementspeed * Time.deltaTime;
                         break;
 
 
                 }
+                if (isWalkable(_movementdirection + m_transform.position)) m_transform.Translate(_movementdirection);
                 break;
 
 
-
         }
+    }
+    private bool isWalkable(Vector3 targetPosition)
+    {
+        if (Physics2D.OverlapCircle(targetPosition, 1.0f, colision) != null) return false;
+        else return true;
     }
     // Start is called before the first frame update
     void Start()
