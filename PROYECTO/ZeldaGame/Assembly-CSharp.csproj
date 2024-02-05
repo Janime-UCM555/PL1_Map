@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AnimatorComponent.cs" />
+    <Compile Include="Assets\Scripts\AnimatorOcktorok.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\BombComponent.cs" />
     <Compile Include="Assets\Scripts\EnterTrigger.cs" />
