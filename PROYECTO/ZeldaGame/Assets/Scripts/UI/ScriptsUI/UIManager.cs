@@ -9,12 +9,12 @@ public class UIManager : MonoBehaviour
 
     public int totalRupias;
     [SerializeField] private GameObject spriteBomba;
+    [SerializeField] private GameObject spriteEscudo;
+    [SerializeField] private GameObject spriteFlecha;
     [SerializeField] private TMP_Text textoRupias;
-    [SerializeField] private TMP_Text textoPrecio;
     [SerializeField] private List<GameObject> listaCorazones;
     [SerializeField] private Sprite corazonVacio;
     [SerializeField] private Sprite corazonMedio;
-    private CoinComponent coinComponent;
 
     private void Start()
     {
@@ -38,11 +38,6 @@ public class UIManager : MonoBehaviour
         Image imagenCorazon = listaCorazones[indice].GetComponent<Image>();
         imagenCorazon.sprite = corazonVacio;
 
-    }
-    public void QuitarTexto()
-    {
-
-        Destroy(textoPrecio);
     }
     public void PonerSprite(int newState)
     {

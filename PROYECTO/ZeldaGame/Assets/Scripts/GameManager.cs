@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private int Hearts;
-
     static private GameManager _game;
     static public GameManager Game
     {
