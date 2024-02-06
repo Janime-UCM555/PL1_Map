@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class LinkMovement : MonoBehaviour
 {
-    private Vector3 room = new Vector3(-26, -14, 0);
+    private Vector3 room = new Vector3(-26f, -13.5f, 0f);
     private float _xvalue;
     private float _yvalue;
     public Vector3 _directionVector;

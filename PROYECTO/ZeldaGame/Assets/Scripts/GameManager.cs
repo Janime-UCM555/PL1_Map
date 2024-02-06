@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject SalaEspada;
+    [SerializeField] private GameObject SalaTienda;
+    [SerializeField] private GameObject SalaSecreta;
+
     private int Hearts;
     static private GameManager _game;
     static public GameManager Game
@@ -21,6 +25,12 @@ public class GameManager : MonoBehaviour
     {
         LinkMovement.Link.Enter();
         _camera.Enter();
+    }
+    public void ActivateRoom(bool espada, bool tienda, bool secreto)
+    {
+        SalaEspada.SetActive(espada);
+        SalaTienda.SetActive(tienda);
+        SalaSecreta.SetActive(secreto);
     }
     public void ExitRoom()
     {

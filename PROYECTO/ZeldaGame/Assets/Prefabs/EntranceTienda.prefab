@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8539400817146451668}
   - component: {fileID: 8179714480200253155}
   m_Layer: 9
-  m_Name: Entrance
+  m_Name: EntranceTienda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,3 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613fb437e188a104b94ec691dd8b20d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  espada: 0
+  tienda: 1
+  secreto: 0

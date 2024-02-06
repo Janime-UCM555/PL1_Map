@@ -9,6 +9,7 @@ public class ExitTrigger : MonoBehaviour
         LinkMovement link = other.gameObject.GetComponent<LinkMovement>();
         if (link != null) //cambiar por rigidbody.velocity
         {
+            GameManager.Game.ActivateRoom(false, false, false);
             GameManager.Game.ExitRoom();
         }
     }
