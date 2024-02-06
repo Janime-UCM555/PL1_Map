@@ -163,7 +163,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8498090972268378230, guid: a10a1faf97c81374781bac724ee12d90, type: 3}
   _ocktorokMovement: {fileID: 8781205053904603553}
   "da\xF1o": 1
-  vida: 2
+  vida: 1
   droptType: 1
   stopDistance: 10
   reloadBullet: 2
