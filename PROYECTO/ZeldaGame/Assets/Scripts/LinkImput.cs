@@ -57,16 +57,16 @@ public class LinkInput : MonoBehaviour
             _linkMovement.RegisterX(Input.GetAxisRaw("Horizontal"));
             _linkMovement.RegisterY(Input.GetAxisRaw("Vertical"));
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J))
             {
                 _myAnimator.isAttacking = true;
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J))
                 {
                     swordAttack = true;
 
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.B))
+            else if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
             {
                 _myAnimator.placeBomb = true;
 

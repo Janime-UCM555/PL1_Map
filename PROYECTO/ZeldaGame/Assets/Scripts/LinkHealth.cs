@@ -11,6 +11,7 @@ public class LinkHealth : MonoBehaviour
     private LinkMovement _movement;
     private LinkInput _input;
     private AnimatorComponent _animator;
+    [SerializeField]
     private float desiredtime = 3.0f;
     private float elapsedtime = 0.0f;
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class LinkHealth : MonoBehaviour
 
     public void TakesDamage()
     {
+        elapsedtime = 0;
         if (!_animator.takesDamage) 
         {
             health--;

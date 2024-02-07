@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class MoblinMovement : MonoBehaviour
@@ -31,48 +28,31 @@ public class MoblinMovement : MonoBehaviour
     public void Comportamientoenemigo()
     {
         cronometro += 1 * Time.deltaTime;
-        if (cronometro >= 2)
+        if (cronometro >= 1.5)
         {
-            rutina = Random.Range(0, 2);
             cronometro = 0;
+            grado = Random.Range(0, 4);
         }
-        switch (rutina)
+        else
         {
+            if (grado == 0)
+            {
+                _movementdirection = new Vector3(-1, 0, 0) * _movementspeed * Time.deltaTime;
+            }
 
-            case 1:
-
-                grado = Random.Range(0, 4);
-                rutina++;
-                break;
-            case 2:
-                switch (grado)
-                {
-
-
-                    case 0:
-
-                        _movementdirection = new Vector3(-1, 0, 0) * _movementspeed * Time.deltaTime;
-                        break;
-
-                    case 1:
-
-                        _movementdirection = new Vector3(0, 1, 0) * _movementspeed * Time.deltaTime;
-                        break;
-                    case 2:
-
-                        _movementdirection = new Vector3(0, -1, 0) * _movementspeed * Time.deltaTime;
-                        break;
-                    case 3:
-
-                        _movementdirection = new Vector3(1, 0, 0) * _movementspeed * Time.deltaTime;
-                        break;
-
-
-                }
-                if (isWalkable(_movementdirection + m_transform.position)) m_transform.Translate(_movementdirection);
-                break;
-
-
+            else if (grado == 1)
+            {
+                _movementdirection = new Vector3(0, 1, 0) * _movementspeed * Time.deltaTime;
+            }
+            else if (grado == 2)
+            {
+                _movementdirection = new Vector3(0, -1, 0) * _movementspeed * Time.deltaTime;
+            }
+            else if (grado == 3)
+            {
+                _movementdirection = new Vector3(1, 0, 0) * _movementspeed * Time.deltaTime;
+            }
+            if (isWalkable(_movementdirection + m_transform.position)) m_transform.Translate(_movementdirection);
         }
     }
     private bool isWalkable(Vector3 targetPosition)

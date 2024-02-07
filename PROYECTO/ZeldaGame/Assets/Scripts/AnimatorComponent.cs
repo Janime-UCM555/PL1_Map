@@ -15,7 +15,9 @@ public class AnimatorComponent : MonoBehaviour
     private LinkMovement mLinkMovement;
     private SpriteRenderer _mSprite;
     private LinkInput mLinkInput;
-    [SerializeField] private SpriteRenderer _SwordSpriteRenderer;
+    [SerializeField] 
+    private SpriteRenderer _SwordSpriteRenderer;
+    private SpriteRenderer _mySpriterender;
     Color colorsprite;
     [SerializeField]
     private float desiredtime = 3.0f;
@@ -23,7 +25,7 @@ public class AnimatorComponent : MonoBehaviour
     public void LinkEzquizo()
     {
         elapsedtime = 0f;
-        GetComponent<SpriteRenderer>().color = Color.Lerp(colorsprite, Color.cyan * Color.blue, Mathf.PingPong(Time.time, 0.5f));
+        _mySpriterender.color = Color.LerpUnclamped(colorsprite, Color.cyan * Color.blue, Mathf.PingPong(Time.time,desiredtime));
     }
     // Start is called before the first frame update
     void Start()
@@ -33,13 +35,16 @@ public class AnimatorComponent : MonoBehaviour
         mLinkMovement = GetComponent<LinkMovement>();
         _mSprite = GetComponent<SpriteRenderer>();
         mLinkInput = GetComponent<LinkInput>();
-        colorsprite = GetComponent<SpriteRenderer>().color;
+        _mySpriterender = GetComponent<SpriteRenderer>();
+        colorsprite = _mySpriterender.color;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (takesDamage && elapsedtime <= desiredtime) {LinkEzquizo();}
+        if (takesDamage && elapsedtime <= desiredtime) { LinkEzquizo(); }
+        else { _mySpriterender.color = colorsprite; }
         if (mLinkMovement._directionVector != Vector3.zero)
         {
             mAnimator.SetInteger("AnimState", 2);

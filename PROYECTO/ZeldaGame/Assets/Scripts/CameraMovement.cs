@@ -73,9 +73,4 @@ public class CameraMovement : MonoBehaviour
             elapsedTime = 0f;
         }
     }
-
-    private void Update()
-    {
-
-    }
 }
