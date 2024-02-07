@@ -16,8 +16,6 @@ public class OcktorokAttack : MonoBehaviour
     private Transform _targetTransform;
     #endregion   
     [SerializeField]
-    private float daño = 1;
-    [SerializeField]
     public float vida = 2;
     [SerializeField]
     public int droptType = 1;
@@ -115,7 +113,5 @@ public class OcktorokAttack : MonoBehaviour
         {
             _ocktorokMovement.NotStopToShoot();
         }
-        Debug.Log(vida);
-
     }
 }

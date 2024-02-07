@@ -24,7 +24,6 @@ public class AttackComponent : MonoBehaviour
     [SerializeField] private LinkHealth _Health;
     [SerializeField] private GameObject _SwordProjectilePrefab;
     private GameObject _SwordProjectile;
-    [SerializeField] SwordProjectileComponent _SwordProjectileComponent;
 
     // Start is called before the first frame update
     private void Awake()
@@ -54,35 +53,33 @@ public class AttackComponent : MonoBehaviour
             transform.Rotate(Vector3.up, 180);
             OffsetX = -HorX;
             OffsetY = HorY;
-            _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
         }
         else if (_lastMovement.x == 1)
         {
             OffsetX = HorX;
             OffsetY = HorY;
-            _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
         }
         else if (_lastMovement.y == 1)
         {
             transform.Rotate(Vector3.forward, 90);
             OffsetX = -VerX;
             OffsetY = VerY;
-            _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
         }
         else if (_lastMovement.y == -1 || _lastMovement.magnitude == 0)
         {
             transform.Rotate(Vector3.forward, 270);
             OffsetX = VerX;
             OffsetY = -VerY;
-            _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
         }
-
+        _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
         transform.position = _targetTransform.position + _OffsetVector;
         _spriteRenderer.enabled = true;
         _collider.enabled = true;
         if (_Health.health == _Health.maxHealth)
         {
-            _SwordProjectile = Instantiate(_SwordProjectilePrefab, transform.position, transform.rotation);
+            _SwordProjectile = Instantiate(_SwordProjectilePrefab, transform.position + _lastMovement.normalized, transform.rotation);
+            SwordProjectileComponent _SwordProjectileComponent = _SwordProjectile.GetComponent<SwordProjectileComponent>(); 
+            if(_SwordProjectileComponent != null) _SwordProjectileComponent.Setup(_lastMovement);
         }
         
         

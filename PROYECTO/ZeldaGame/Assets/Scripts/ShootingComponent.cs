@@ -62,10 +62,7 @@ public class ShootingComponent : MonoBehaviour
         // Si la distancia es menor o igual a la distancia de parada, procede a cargar para disparar una bala
         if (distanceToPlayer <= stopDistance)
         {
-            if(reloadBullet == reloadBullet)
-            {
-                _ocktorokMovement.StopToShoot();
-            }
+            _ocktorokMovement.StopToShoot();
             reloadBullet -= Time.deltaTime;
             //Si la recarga se ha completado, dispara
             if (reloadBullet <= 0.0f)

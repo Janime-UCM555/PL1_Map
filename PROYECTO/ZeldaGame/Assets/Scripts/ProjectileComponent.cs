@@ -41,6 +41,7 @@ public class ProjectileComponent : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collider2D) 
     {
         if (collider2D.gameObject.GetComponent<TilemapCollider2D>() != null) { Destroy(gameObject); }
+        if (collider2D.gameObject.GetComponent<CameraTrigger>() != null) { Destroy(gameObject); }
         else if(collider2D.gameObject.GetComponent<LinkHealth>() != null) { Destroy(gameObject); collider2D.gameObject.GetComponent<LinkHealth>().TakesDamage(); }
     }
     #endregion

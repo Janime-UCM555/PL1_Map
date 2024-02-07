@@ -5,27 +5,25 @@ public class SwordProjectileComponent : MonoBehaviour
 {
     private Vector3 _shotMovement;
     [SerializeField] private float _shotSpeed;
-    [SerializeField] private AttackComponent _attackComponent;
     private Rigidbody2D _myRigidBody;
     public bool SwordProjectileCollision = false;
     private Animator _animator;
 
-    private void Awake()
-    {
-
-        _shotMovement = _attackComponent._lastMovement;
-        _myRigidBody = GetComponent<Rigidbody2D>();
-        _myRigidBody.velocity = _attackComponent._lastMovement * _shotSpeed;
-    }
     void Start()
     {
-        
+        _myRigidBody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+    }
+    
+    public void Setup(Vector3 Movement) 
+    {
+        _shotMovement = Movement;
     }
 
     private void FixedUpdate()
     {
         _myRigidBody.velocity = _shotMovement * _shotSpeed;
+        if (Mathf.Approximately(_myRigidBody.velocity.magnitude, 0.0f)) _animator.SetBool("SwordProjectileCollision", true); ;
     }
     private void DestroySword()
     {
@@ -39,14 +37,7 @@ public class SwordProjectileComponent : MonoBehaviour
         {
             _shotMovement = Vector3.zero;
             _animator.SetBool("SwordProjectileCollision", true);
-            Debug.Log("colisiona");
         }
         else { _animator.SetBool("SwordProjectileCollision", false); }
     }
-    void Update()
-    {
-        Debug.Log(_shotMovement);
-        
-    }
-
 }

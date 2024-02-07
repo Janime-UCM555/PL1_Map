@@ -16,7 +16,6 @@ public class LinkMovement : MonoBehaviour
     [SerializeField] private GameObject _bombPrefab;
     private Rigidbody2D _myRigidBody;
     private Transform _myTransform;
-    private bool disableMov = false;
 
     [SerializeField] private AttackComponent _attackComponent;
     [SerializeField] private Collider2D _swordCollider;
@@ -24,6 +23,8 @@ public class LinkMovement : MonoBehaviour
     private LinkInput linkInput;
     private Vector3 vector3 = new Vector3();
     public float empuje;
+
+    #region bomb related properties
     private float OffsetX;
     private float OffsetY;
     public float HorX = 0.5f;
@@ -36,6 +37,8 @@ public class LinkMovement : MonoBehaviour
     private CircleCollider2D _circleCollider;
     public float bombcounter;
     private Vector3 _bombPlacement;
+    #endregion
+
     static private LinkMovement _movement;
     static public LinkMovement Link { get { return _movement; } }
     public void RegisterX(float x)

@@ -67,10 +67,6 @@ public class AnimatorComponent : MonoBehaviour
         {
             mAnimator.SetInteger("AnimState", 1);
         }
-        if (takesDamage)
-        {
-            mAnimator.SetInteger("Animstate", 4);
-        }
         if (placeBomb)
         {
             mAnimator.SetInteger("AnimState", 3);
