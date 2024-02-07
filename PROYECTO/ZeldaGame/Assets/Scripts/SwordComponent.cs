@@ -21,8 +21,16 @@ public class AttackComponent : MonoBehaviour
     private Quaternion _Rotation;
     public Vector3 _lastMovement;
     private Vector3 _OriginalPosition;
+    [SerializeField] private LinkHealth _Health;
+    [SerializeField] private GameObject _SwordProjectilePrefab;
+    private GameObject _SwordProjectile;
+    [SerializeField] SwordProjectileComponent _SwordProjectileComponent;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        _lastMovement = new Vector3(0, -1, 0);
+    }
     void Start()
     {
         _OriginalPosition = transform.position;
@@ -34,6 +42,7 @@ public class AttackComponent : MonoBehaviour
         _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
         _myTransform = transform;
         transform.position = _targetTransform.position + _OffsetVector;
+
     }
 
     public void SummonSword()
@@ -71,6 +80,12 @@ public class AttackComponent : MonoBehaviour
         transform.position = _targetTransform.position + _OffsetVector;
         _spriteRenderer.enabled = true;
         _collider.enabled = true;
+        if (_Health.health == _Health.maxHealth)
+        {
+            _SwordProjectile = Instantiate(_SwordProjectilePrefab, transform.position, transform.rotation);
+        }
+        
+        
     }
 
     void Update()

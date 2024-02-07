@@ -54,9 +54,14 @@ public class OcktorokAttack : MonoBehaviour
 
     }
 
+    
+    public void EnemyDies()
+    {
+        Destroy(gameObject);
+    }
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.GetComponent<AttackComponent>() != null)
+        if (collider.gameObject.GetComponent<AttackComponent>() != null || collider.gameObject.GetComponent<SwordProjectileComponent>() != null)
         {
             if (imune > 0)
             {
@@ -64,11 +69,11 @@ public class OcktorokAttack : MonoBehaviour
                 if (vida <= 0)
                 {
                     GetComponent<ItemDrop>().Drop(droptType);
-                    Destroy(gameObject);
+                    EnemyDies();
                 }
                 else { imune -= 1 * Time.deltaTime; }
             }
-
+            
         }
         else if (collider.gameObject.GetComponent<LinkHealth>() != null) 
         {
@@ -110,5 +115,7 @@ public class OcktorokAttack : MonoBehaviour
         {
             _ocktorokMovement.NotStopToShoot();
         }
+        Debug.Log(vida);
+
     }
 }

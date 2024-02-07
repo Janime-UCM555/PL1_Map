@@ -14,7 +14,6 @@ public class LinkMovement : MonoBehaviour
     public float SpeedValue = 2f;
     [SerializeField] private BombComponent _bombComponent;
     [SerializeField] private GameObject _bombPrefab;
-    public GameObject _bombClone;
     private Rigidbody2D _myRigidBody;
     private Transform _myTransform;
     private bool disableMov = false;
@@ -25,7 +24,18 @@ public class LinkMovement : MonoBehaviour
     private LinkInput linkInput;
     private Vector3 vector3 = new Vector3();
     public float empuje;
-
+    private float OffsetX;
+    private float OffsetY;
+    public float HorX = 0.5f;
+    public float HorY = -0.1f;
+    public float VerX = 0.15f;
+    public float VerY = 0.6f;
+    private Vector3 _lastMovement;
+    private Vector3 _OriginalPosition;
+    private Vector3 _OffsetVector;
+    private CircleCollider2D _circleCollider;
+    public float bombcounter;
+    private Vector3 _bombPlacement;
     static private LinkMovement _movement;
     static public LinkMovement Link { get { return _movement; } }
     public void RegisterX(float x)
@@ -59,7 +69,31 @@ public class LinkMovement : MonoBehaviour
     }
     public void PlaceBomb()
     {
-        _bombComponent.PlaceBomb();
+        if (_lastMovement.x == -1)
+        {
+            OffsetX = -HorX;
+            OffsetY = HorY;
+        }
+        else if (_lastMovement.x == 1)
+        {
+            OffsetX = HorX;
+            OffsetY = HorY;
+        }
+        else if (_lastMovement.y == 1)
+        {
+            OffsetX = -VerX;
+            OffsetY = VerY;
+        }
+        else if (_lastMovement.y == -1 || _lastMovement.magnitude == 0)
+        {
+            OffsetX = VerX;
+            OffsetY = -VerY;
+        }
+
+        _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
+        _bombPlacement = transform.position + _OffsetVector;
+
+        Instantiate(_bombPrefab, _bombPlacement, Quaternion.identity);
         _movement.enabled = false;
         _myRigidBody.velocity = Vector3.zero;
 
@@ -69,6 +103,7 @@ public class LinkMovement : MonoBehaviour
     {
         _movement.enabled = true;
     }
+
 
     public void TakesDamages() 
     {
@@ -110,5 +145,10 @@ public class LinkMovement : MonoBehaviour
         _movementVector = (SpeedValue * _directionVector) + (vector3 * SpeedValue * empuje);
         _myRigidBody.velocity = _movementVector;
         vector3 = Vector3.zero;
+        if (!_movement._directionVector.Equals(Vector3.zero))
+        {
+            _lastMovement = _movement._directionVector;
+        }
     }
+    
 }

@@ -78,9 +78,6 @@ public class BombComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_movement._directionVector != Vector3.zero)
-        {
-            _lastMovement = _movement._directionVector;
-        }
+
     }
 }
