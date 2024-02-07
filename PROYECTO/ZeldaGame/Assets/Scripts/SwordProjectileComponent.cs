@@ -12,6 +12,7 @@ public class SwordProjectileComponent : MonoBehaviour
 
     private void Awake()
     {
+
         _shotMovement = _attackComponent._lastMovement;
         _myRigidBody = GetComponent<Rigidbody2D>();
         _myRigidBody.velocity = _attackComponent._lastMovement * _shotSpeed;
@@ -36,7 +37,7 @@ public class SwordProjectileComponent : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<TilemapCollider2D>() != null || collision.gameObject.GetComponent<OcktorokAttack>() != null || collision.gameObject.GetComponent<CameraTrigger>() != null)
         {
-
+            _shotMovement = Vector3.zero;
             _animator.SetBool("SwordProjectileCollision", true);
             Debug.Log("colisiona");
         }
