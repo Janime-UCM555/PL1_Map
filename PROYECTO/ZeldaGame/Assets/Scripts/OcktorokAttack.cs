@@ -59,7 +59,7 @@ public class OcktorokAttack : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.GetComponent<AttackComponent>() != null || collider.gameObject.GetComponent<SwordProjectileComponent>() != null)
+        if (collider.gameObject.GetComponent<AttackComponent>() != null || collider.gameObject.GetComponent<SwordProjectileComponent>() != null || collider.gameObject.GetComponent<BombComponent>() != null)
         {
             if (imune > 0)
             {

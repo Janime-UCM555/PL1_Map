@@ -125,7 +125,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.61
 --- !u!114 &8781205053904603553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,12 +141,14 @@ MonoBehaviour:
   m_transform: {fileID: 0}
   _movementspeed: 5
   _movementdirection: {x: 0, y: 0, z: 0}
-  rutina: 0
   cronometro: 0
   grado: 0
   colision:
     serializedVersion: 2
     m_Bits: 256
+  bounds:
+    serializedVersion: 2
+    m_Bits: 4096
   _targetTransform: {fileID: 0}
 --- !u!114 &8045524839859234728
 MonoBehaviour:
@@ -162,7 +164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8498090972268378230, guid: a10a1faf97c81374781bac724ee12d90, type: 3}
   _ocktorokMovement: {fileID: 8781205053904603553}
-  "da\xF1o": 1
   vida: 1
   droptType: 1
   stopDistance: 10

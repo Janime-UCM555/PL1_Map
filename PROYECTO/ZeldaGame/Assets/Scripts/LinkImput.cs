@@ -63,7 +63,6 @@ public class LinkInput : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J))
                 {
                     swordAttack = true;
-
                 }
             }
             else if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))

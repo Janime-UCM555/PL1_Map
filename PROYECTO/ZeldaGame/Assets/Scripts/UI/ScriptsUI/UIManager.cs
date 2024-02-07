@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-
+    static private UIManager _UIManager;
+    static public UIManager UIMan { get { return _UIManager; } }
     public int totalRupias;
     [SerializeField] private GameObject spriteBomba;
     [SerializeField] private GameObject spriteEscudo;
@@ -18,6 +19,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        _UIManager = GetComponent<UIManager>();
         CoinComponent.sumaRupia += SumarRupias;
         ShopItemComponent.restaRupia += RestarRupias;
 

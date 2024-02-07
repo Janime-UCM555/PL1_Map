@@ -81,8 +81,6 @@ public class AttackComponent : MonoBehaviour
             SwordProjectileComponent _SwordProjectileComponent = _SwordProjectile.GetComponent<SwordProjectileComponent>(); 
             if(_SwordProjectileComponent != null) _SwordProjectileComponent.Setup(_lastMovement);
         }
-        
-        
     }
 
     void Update()
