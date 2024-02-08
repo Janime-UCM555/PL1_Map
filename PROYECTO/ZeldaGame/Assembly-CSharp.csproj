@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\AnimatorOcktorok.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\BombComponent.cs" />
+    <Compile Include="Assets\Scripts\TektiteMovement.cs" />
     <Compile Include="Assets\Scripts\EnterTrigger.cs" />
     <Compile Include="Assets\Scripts\UI\ScriptsUI\UIManager.cs" />
     <Compile Include="Assets\Scripts\LinkMovement.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\Scripts\SwordComponent.cs" />
     <Compile Include="Assets\Scripts\UI\ScriptsUI\ShopItem.cs" />
     <Compile Include="Assets\Scripts\HealthUp.cs" />
+    <Compile Include="Assets\Scripts\AnimatorMoblin.cs" />
     <Compile Include="Assets\Scripts\UI\ScriptsUI\CoinComponent.cs" />
     <Compile Include="Assets\Scripts\UI\ScriptsUI\LifeComponent.cs" />
     <Compile Include="Assets\Scripts\LinkImput.cs" />
