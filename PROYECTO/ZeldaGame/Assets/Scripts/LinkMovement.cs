@@ -24,6 +24,8 @@ public class LinkMovement : MonoBehaviour
     private Vector3 vector3 = new Vector3();
     public float empuje;
 
+    public Vector2 direccionMirada;
+
     #region bomb related properties
     private float OffsetX;
     private float OffsetY;
@@ -136,6 +138,13 @@ public class LinkMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+
+        float movimientoHorizontal = Input.GetAxisRaw("Horizontal");
+        float movimientoVertical = Input.GetAxisRaw("Vertical");
+
+
+        direccionMirada = new Vector2(movimientoHorizontal, movimientoVertical).normalized;
+
         if (Mathf.Abs(_xvalue) > Mathf.Abs(_yvalue))
         {
             _yvalue = 0;
@@ -153,5 +162,10 @@ public class LinkMovement : MonoBehaviour
             _lastMovement = _movement._directionVector;
         }
     }
-    
+
+    public Vector2 GetDireccionMovimiento()
+    {
+        return new Vector2(_xvalue, _yvalue).normalized;
+    }
+
 }
