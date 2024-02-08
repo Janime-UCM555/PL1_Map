@@ -102,7 +102,7 @@ MonoBehaviour:
   bombcounter: 0
   colision:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8192
   salaSecreto: {fileID: 2959789421372889633, guid: a23da9fd59b7b69429270f8552335c9e, type: 3}
 --- !u!58 &1052605785899551517
 CircleCollider2D:

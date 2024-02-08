@@ -28,10 +28,10 @@ public class BombComponent : MonoBehaviour
     }
     public void ExplosionEnds()
     {
-        if (Physics2D.OverlapCircle(_myTransform.position + new Vector3(0, 0.35f, 0), 0.5f, colision) != null)
+        Collider2D collider = Physics2D.OverlapCircle(_myTransform.position, 1f, colision);
+        if (collider != null)
         {
-            Vector3 position = new Vector3(Mathf.Round(_myTransform.position.x), Mathf.Round(_myTransform.position.y + 1), 1);
-            Instantiate(salaSecreto, position, Quaternion.identity);
+            Instantiate(salaSecreto, collider.gameObject.transform.position, Quaternion.identity);
         }
         _circleCollider.enabled = false;
         Destroy(gameObject);
