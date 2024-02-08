@@ -31,7 +31,8 @@ public class BombComponent : MonoBehaviour
         Collider2D collider = Physics2D.OverlapCircle(_myTransform.position, 1f, colision);
         if (collider != null)
         {
-            Instantiate(salaSecreto, collider.gameObject.transform.position, Quaternion.identity);
+
+            Instantiate(salaSecreto, new Vector3(Mathf.Round(_myTransform.position.x), Mathf.Round(_myTransform.position.y), _myTransform.position.z), Quaternion.identity);
         }
         _circleCollider.enabled = false;
         Destroy(gameObject);
