@@ -37,7 +37,7 @@ public class LinkMovement : MonoBehaviour
     private Vector3 _OriginalPosition;
     private Vector3 _OffsetVector;
     private CircleCollider2D _circleCollider;
-    public float bombcounter;
+    public int bombcounter;
     private Vector3 _bombPlacement;
     #endregion
 
@@ -74,6 +74,7 @@ public class LinkMovement : MonoBehaviour
     }
     public void PlaceBomb()
     {
+        
         if (_lastMovement.x == -1)
         {
             OffsetX = -HorX;
@@ -101,7 +102,8 @@ public class LinkMovement : MonoBehaviour
         Instantiate(_bombPrefab, _bombPlacement, Quaternion.identity);
         _movement.enabled = false;
         _myRigidBody.velocity = Vector3.zero;
-
+        bombcounter--;
+    
     }
    
     public void BombPlaced()

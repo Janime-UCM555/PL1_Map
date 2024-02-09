@@ -9,10 +9,13 @@ public class UIManager : MonoBehaviour
     static private UIManager _UIManager;
     static public UIManager UIMan { get { return _UIManager; } }
     public int totalRupias;
+    public int totalBombas;
     [SerializeField] private GameObject spriteBomba;
     [SerializeField] private GameObject spriteEscudo;
     [SerializeField] private GameObject spriteFlecha;
+    [SerializeField] private GameObject spriteEspada;
     [SerializeField] private TMP_Text textoRupias;
+    [SerializeField] private TMP_Text textoBombas;
     [SerializeField] private List<GameObject> listaCorazones;
     [SerializeField] private Sprite corazonVacio;
     [SerializeField] private Sprite corazonMedio;
@@ -35,6 +38,11 @@ public class UIManager : MonoBehaviour
         totalRupias -= rupias;
         textoRupias.text = "X" + totalRupias.ToString();
     }
+    public void SumarBombas(int bombas)
+    {
+        totalBombas += bombas;
+        textoBombas.text = totalBombas.ToString();
+    }
     public void RestaCorazones(int indice)
     {
         Image imagenCorazon = listaCorazones[indice].GetComponent<Image>();
@@ -55,6 +63,10 @@ public class UIManager : MonoBehaviour
             Debug.Log("No hay objeto que poner");
             break;
         }
+    }
+    public void PonerEspada(bool newState)
+    {
+        spriteEspada.SetActive(newState);
     }
 
 }

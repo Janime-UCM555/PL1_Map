@@ -5,12 +5,14 @@ using UnityEngine;
 public class LinkInput : MonoBehaviour
 {
     private LinkMovement _linkMovement;
+    private UIManager _uiManager;
     [SerializeField] private AttackComponent _attackComponent;
     private AnimatorComponent _myAnimator;
     public bool swordAttack = false;
     public bool placesBomb = false;
     private bool isInputEnabled = true;
     private bool isMoving;
+    public bool canAttack = false;
 
     [SerializeField]
     private GameObject MainCamera;
@@ -59,16 +61,21 @@ public class LinkInput : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J))
             {
-                _myAnimator.isAttacking = true;
-                if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J))
+                if(canAttack==true) 
                 {
-                    swordAttack = true;
+                    _myAnimator.isAttacking = true;
+                    if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J))
+                    {
+                        swordAttack = true;
+                    }
                 }
             }
             else if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
             {
-                _myAnimator.placeBomb = true;
-
+                if (_uiManager.totalBombas != 0) 
+                { 
+                    _myAnimator.placeBomb = true;
+                }
             }
             else
             {

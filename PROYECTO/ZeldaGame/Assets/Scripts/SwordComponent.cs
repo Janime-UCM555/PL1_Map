@@ -24,6 +24,8 @@ public class AttackComponent : MonoBehaviour
     [SerializeField] private LinkHealth _Health;
     [SerializeField] private GameObject _SwordProjectilePrefab;
     private GameObject _SwordProjectile;
+    private SwordPickUpComponent _pickSword;
+    public bool _canAttack = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -41,45 +43,48 @@ public class AttackComponent : MonoBehaviour
         _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
         _myTransform = transform;
         transform.position = _targetTransform.position + _OffsetVector;
-
+        _canAttack = false;
     }
 
     public void SummonSword()
     {
-        transform.rotation = _Rotation;
-        transform.position = _OriginalPosition;
-        if (_lastMovement.x == -1)
+        if(_canAttack==true)
         {
-            transform.Rotate(Vector3.up, 180);
-            OffsetX = -HorX;
-            OffsetY = HorY;
-        }
-        else if (_lastMovement.x == 1)
-        {
-            OffsetX = HorX;
-            OffsetY = HorY;
-        }
-        else if (_lastMovement.y == 1)
-        {
-            transform.Rotate(Vector3.forward, 90);
-            OffsetX = -VerX;
-            OffsetY = VerY;
-        }
-        else if (_lastMovement.y == -1 || _lastMovement.magnitude == 0)
-        {
-            transform.Rotate(Vector3.forward, 270);
-            OffsetX = VerX;
-            OffsetY = -VerY;
-        }
-        _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
-        transform.position = _targetTransform.position + _OffsetVector;
-        _spriteRenderer.enabled = true;
-        _collider.enabled = true;
-        if (_Health.health == _Health.maxHealth)
-        {
-            _SwordProjectile = Instantiate(_SwordProjectilePrefab, transform.position + _lastMovement.normalized, transform.rotation);
-            SwordProjectileComponent _SwordProjectileComponent = _SwordProjectile.GetComponent<SwordProjectileComponent>(); 
-            if(_SwordProjectileComponent != null) _SwordProjectileComponent.Setup(_lastMovement);
+            transform.rotation = _Rotation;
+            transform.position = _OriginalPosition;
+            if (_lastMovement.x == -1)
+            {
+                transform.Rotate(Vector3.up, 180);
+                OffsetX = -HorX;
+                OffsetY = HorY;
+            }
+            else if (_lastMovement.x == 1)
+            {
+                OffsetX = HorX;
+                OffsetY = HorY;
+            }
+            else if (_lastMovement.y == 1)
+            {
+                transform.Rotate(Vector3.forward, 90);
+                OffsetX = -VerX;
+                OffsetY = VerY;
+            }
+            else if (_lastMovement.y == -1 || _lastMovement.magnitude == 0)
+            {
+                transform.Rotate(Vector3.forward, 270);
+                OffsetX = VerX;
+                OffsetY = -VerY;
+            }
+            _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
+            transform.position = _targetTransform.position + _OffsetVector;
+            _spriteRenderer.enabled = true;
+            _collider.enabled = true;
+            if (_Health.health == _Health.maxHealth)
+            {
+                _SwordProjectile = Instantiate(_SwordProjectilePrefab, transform.position + _lastMovement.normalized, transform.rotation);
+                SwordProjectileComponent _SwordProjectileComponent = _SwordProjectile.GetComponent<SwordProjectileComponent>();
+                if (_SwordProjectileComponent != null) _SwordProjectileComponent.Setup(_lastMovement);
+            }
         }
     }
 
