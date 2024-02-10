@@ -41,7 +41,7 @@ public class UIManager : MonoBehaviour
     public void SumarBombas(int bombas)
     {
         totalBombas += bombas;
-        textoBombas.text = totalBombas.ToString();
+        textoBombas.text = "X" + totalBombas.ToString();
     }
     public void RestaCorazones(int indice)
     {

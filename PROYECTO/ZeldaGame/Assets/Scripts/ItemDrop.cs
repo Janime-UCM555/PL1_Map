@@ -36,11 +36,15 @@ public class ItemDrop : MonoBehaviour
     private int[] DropsD = { 1, 1, 3, 0, 1, 3, 1, 1, 1, 0 };
 
     private int DropRate;
+    [SerializeField]
     private int killCount = 0;
     #endregion
-    public void Drop(int EnemyType)// El enemy type viene dado del script del enemigo
+    
+    
+    public void Drop(int EnemyType, Transform EnemyTransform)// El enemy type viene dado del script del enemigo
     {
         killCount++;
+        _myTransform = EnemyTransform;
         DropRate = Random.Range(0, 100);
         switch (EnemyType)
         {
@@ -49,7 +53,7 @@ public class ItemDrop : MonoBehaviour
                 {
                     int n = killCount % 10;
                     int DropType = DropsA[n];
-                    DropItem(DropType);
+                    DropItem(DropType, EnemyTransform);
                 }
                 break;
 
@@ -58,7 +62,7 @@ public class ItemDrop : MonoBehaviour
                 {
                     int n = killCount % 10;
                     int DropType = DropsB[n];
-                    DropItem(DropType);
+                    DropItem(DropType, EnemyTransform);
                 }
                 break;
 
@@ -67,7 +71,7 @@ public class ItemDrop : MonoBehaviour
                 {
                     int n = killCount % 10;
                     int DropType = DropsC[n];
-                    DropItem(DropType);
+                    DropItem(DropType, EnemyTransform);
                 }
                 break;
 
@@ -76,42 +80,41 @@ public class ItemDrop : MonoBehaviour
                 {
                     int n = killCount % 10;
                     int DropType = DropsD[n];
-                    DropItem(DropType);
+                    DropItem(DropType, EnemyTransform);
                 }
                 break;
 
             case 4:
                 break;
         }
-
     }
 
-    public void DropItem(int DropType)
+    public void DropItem(int DropType, Transform EnemyTransform)
     {
         switch (DropType)
         {
             case 0:
-                GameObject rupee = Instantiate(rupeePrefab, transform.position, Quaternion.identity);
+                GameObject rupee = Instantiate(rupeePrefab, EnemyTransform.transform.position, Quaternion.identity);
                 break;
 
             case 1:
-                GameObject heart = Instantiate(heartPrefab, transform.position, Quaternion.identity);
+                GameObject heart = Instantiate(heartPrefab, EnemyTransform.transform.position, Quaternion.identity);
                 break;
 
             case 2:
-                GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+                GameObject bomb = Instantiate(bombPrefab, EnemyTransform.transform.position, Quaternion.identity);
                 break;
 
             case 3:
-                //GameObject fairy = Instantiate(fairyPrefab, transform.position, Quaternion.identity);
+                //GameObject fairy = Instantiate(fairyPrefab, EnemyTransform.transform.position, Quaternion.identity);
                 break;
 
             case 4:
-                GameObject clock = Instantiate(clockPrefab, transform.position, Quaternion.identity);
+                GameObject clock = Instantiate(clockPrefab, EnemyTransform.transform.position, Quaternion.identity);
                 break;
 
-            case 5:
-                GameObject rupeex5 = Instantiate(rupeex5Prefab, transform.position, Quaternion.identity);
+            case 5: 
+                GameObject rupeex5 = Instantiate(rupeex5Prefab, EnemyTransform.transform.position, Quaternion.identity);
                 break;
         }
     }

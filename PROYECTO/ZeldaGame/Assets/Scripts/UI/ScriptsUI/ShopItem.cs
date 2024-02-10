@@ -23,6 +23,7 @@ public class ShopItemComponent : MonoBehaviour
                 if (restaRupia != null)
                 {
                     RestaRupias();
+                    _uiManager.SumarBombas(1);
                     Destroy(this.gameObject);
                     Destroy(textoPrecio);
                     _uiManager.PonerSprite(identificadorTienda);

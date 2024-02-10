@@ -55,7 +55,7 @@ public class MoblinAttack : MonoBehaviour
                 vida -= daño;
                 if (vida <= 0)
                 {
-                    GetComponent<ItemDrop>().Drop(droptType);
+                    GetComponent<EnemyKilled>().EnemyKill(droptType);
                     Destroy(gameObject);
                 }
                 else { imune -= 1 * Time.deltaTime; }

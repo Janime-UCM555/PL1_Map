@@ -66,7 +66,7 @@ public class OcktorokAttack : MonoBehaviour
                 vida--;
                 if (vida <= 0)
                 {
-                    GetComponent<ItemDrop>().Drop(droptType);
+                    GetComponent<EnemyKilled>().EnemyKill(droptType);
                     EnemyDies();
                 }
                 else { imune -= 1 * Time.deltaTime; }

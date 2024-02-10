@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private CameraMovement _camera;
+
     public void MoveCamera()
     {
         _camera.Move();

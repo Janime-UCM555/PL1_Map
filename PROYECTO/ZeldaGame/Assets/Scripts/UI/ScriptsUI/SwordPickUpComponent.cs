@@ -14,9 +14,9 @@ public class SwordPickUpComponent : MonoBehaviour
         if(player != null)
         {
             _uiManager.PonerEspada(true);
-            Destroy(this.gameObject);
             attack._canAttack = true;
             _input.canAttack = true;
+            Destroy(this.gameObject);
         }
     }
 }
