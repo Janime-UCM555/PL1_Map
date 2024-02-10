@@ -72,10 +72,7 @@ public class LinkInput : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
             {
-                if (_uiManager.totalBombas != 0) 
-                { 
-                    _myAnimator.placeBomb = true;
-                }
+                _myAnimator.placeBomb = true;    
             }
             else
             {

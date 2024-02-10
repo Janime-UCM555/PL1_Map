@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour
         _UIManager = GetComponent<UIManager>();
         CoinComponent.sumaRupia += SumarRupias;
         ShopItemComponent.restaRupia += RestarRupias;
+        ShopItemComponent.sumaBomba += SumarBombas;
+        LinkMovement.restaBomba += RestarBombas;
 
     }
 
@@ -41,6 +43,11 @@ public class UIManager : MonoBehaviour
     public void SumarBombas(int bombas)
     {
         totalBombas += bombas;
+        textoBombas.text = "X" + totalBombas.ToString();
+    }
+    public void RestarBombas(int bombas) 
+    { 
+        totalBombas -= bombas;
         textoBombas.text = "X" + totalBombas.ToString();
     }
     public void RestaCorazones(int indice)

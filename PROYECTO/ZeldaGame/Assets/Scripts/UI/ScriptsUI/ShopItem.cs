@@ -7,6 +7,11 @@ public class ShopItemComponent : MonoBehaviour
 {
     public delegate void RestaRupia(int rupia);
     public static event RestaRupia restaRupia;
+    public delegate void SumaBomba(int bomba);
+    public static event SumaBomba sumaBomba;
+
+    private int cantdadBombas = 1;
+    public LinkMovement _bomb;
     [SerializeField] private bool shopeable;
     [SerializeField] private int precio;
     [SerializeField] public int identificadorTienda;
@@ -23,21 +28,22 @@ public class ShopItemComponent : MonoBehaviour
                 if (restaRupia != null)
                 {
                     RestaRupias();
-                    _uiManager.SumarBombas(1);
+                    SumarBomba();
                     Destroy(this.gameObject);
                     Destroy(textoPrecio);
                     _uiManager.PonerSprite(identificadorTienda);
+                    _bomb.CanPlaceBomb(true);
                 }
-            }
-            else
-            {
-                Destroy(this.gameObject); _uiManager.PonerSprite(identificadorTienda);
             }
         }
     }
     private void RestaRupias()
     {
         restaRupia(precio);
+    }
+    private void SumarBomba()
+    {
+       sumaBomba(cantdadBombas);
     }
     void Start()
     {

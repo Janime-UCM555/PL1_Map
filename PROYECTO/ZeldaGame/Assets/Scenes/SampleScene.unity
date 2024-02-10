@@ -46966,6 +46966,9 @@ MonoBehaviour:
   VerX: 0.15
   VerY: 0.6
   bombcounter: 0
+  canBomb: 0
+  bombAmount: 0
+  cantidadBombas: 0
 --- !u!61 &603777540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47072,7 +47075,7 @@ Transform:
   m_GameObject: {fileID: 603777536}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: -7, z: 0}
+  m_LocalPosition: {x: 5.92, y: -4.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48021,6 +48024,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2026031690561418722, guid: c7a0bcf10986e894e9ca9f1998331ca0, type: 3}
+      propertyPath: shopeable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026031690561418722, guid: c7a0bcf10986e894e9ca9f1998331ca0, type: 3}
       propertyPath: _uiManager
       value: 
       objectReference: {fileID: 1465129488}
@@ -48546,7 +48553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b38510f81cd1445b5164e686ea5684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8498090972268378230, guid: a10a1faf97c81374781bac724ee12d90, type: 3}
+  bulletPrefab: {fileID: 0}
   _leeverMovement: {fileID: 1201614397}
   vida: 2
   droptType: 1
@@ -48780,6 +48787,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: BombItem
       objectReference: {fileID: 0}
+    - target: {fileID: 2570854056576443423, guid: c8265230128b3f549b8005a3c607084b, type: 3}
+      propertyPath: _bomb
+      value: 
+      objectReference: {fileID: 603777539}
+    - target: {fileID: 2570854056576443423, guid: c8265230128b3f549b8005a3c607084b, type: 3}
+      propertyPath: precio
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570854056576443423, guid: c8265230128b3f549b8005a3c607084b, type: 3}
+      propertyPath: shopeable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570854056576443423, guid: c8265230128b3f549b8005a3c607084b, type: 3}
+      propertyPath: textoPrecio
+      value: 
+      objectReference: {fileID: 1962466956}
     - target: {fileID: 5176883812177141528, guid: c8265230128b3f549b8005a3c607084b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.030000687
@@ -49558,7 +49581,7 @@ MonoBehaviour:
   spriteFlecha: {fileID: 0}
   spriteEspada: {fileID: 416758530}
   textoRupias: {fileID: 1612082605}
-  textoBombas: {fileID: 0}
+  textoBombas: {fileID: 1925113688}
   listaCorazones:
   - {fileID: 0}
   - {fileID: 0}
@@ -128176,6 +128199,10 @@ PrefabInstance:
     - target: {fileID: 9161081616969544497, guid: 6c2ce80e08423b544aba9edd7d291967, type: 3}
       propertyPath: m_Name
       value: ShieldItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217854525670249898, guid: 6c2ce80e08423b544aba9edd7d291967, type: 3}
+      propertyPath: shopeable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9217854525670249898, guid: 6c2ce80e08423b544aba9edd7d291967, type: 3}
       propertyPath: _uiManager

@@ -39,6 +39,12 @@ public class LinkMovement : MonoBehaviour
     private CircleCollider2D _circleCollider;
     public int bombcounter;
     private Vector3 _bombPlacement;
+    public bool canBomb;
+    public int bombAmount;
+    public delegate void RestaBomba(int bomba);
+    public static event RestaBomba restaBomba;
+    private int bombDisccount = 1;
+    public int cantidadBombas;
     #endregion
 
     static private LinkMovement _movement;
@@ -74,36 +80,49 @@ public class LinkMovement : MonoBehaviour
     }
     public void PlaceBomb()
     {
-        
-        if (_lastMovement.x == -1)
+        if (cantidadBombas != 0)
         {
-            OffsetX = -HorX;
-            OffsetY = HorY;
-        }
-        else if (_lastMovement.x == 1)
-        {
-            OffsetX = HorX;
-            OffsetY = HorY;
-        }
-        else if (_lastMovement.y == 1)
-        {
-            OffsetX = -VerX;
-            OffsetY = VerY;
-        }
-        else if (_lastMovement.y == -1 || _lastMovement.magnitude == 0)
-        {
-            OffsetX = VerX;
-            OffsetY = -VerY;
-        }
+            if (_lastMovement.x == -1)
+            {
+                OffsetX = -HorX;
+                OffsetY = HorY;
+            }
+            else if (_lastMovement.x == 1)
+            {
+                OffsetX = HorX;
+                OffsetY = HorY;
+            }
+            else if (_lastMovement.y == 1)
+            {
+                OffsetX = -VerX;
+                OffsetY = VerY;
+            }
+            else if (_lastMovement.y == -1 || _lastMovement.magnitude == 0)
+            {
+                OffsetX = VerX;
+                OffsetY = -VerY;
+            }
 
-        _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
-        _bombPlacement = transform.position + _OffsetVector;
+            _OffsetVector = new Vector3(OffsetX, OffsetY, 0f);
+            _bombPlacement = transform.position + _OffsetVector;
 
-        Instantiate(_bombPrefab, _bombPlacement, Quaternion.identity);
-        _movement.enabled = false;
-        _myRigidBody.velocity = Vector3.zero;
-        bombcounter--;
-    
+            Instantiate(_bombPrefab, _bombPlacement, Quaternion.identity);
+            _movement.enabled = false;
+            _myRigidBody.velocity = Vector3.zero;
+            RestarBomba();
+        }
+    }
+    public void CanPlaceBomb(bool newState)
+    {
+        canBomb = newState;
+        if (canBomb==true)
+        {
+            PlaceBomb();
+        }
+    }
+    private void RestarBomba()
+    {
+        restaBomba(bombDisccount);
     }
    
     public void BombPlaced()
@@ -163,8 +182,9 @@ public class LinkMovement : MonoBehaviour
         {
             _lastMovement = _movement._directionVector;
         }
+        
+        cantidadBombas = UIManager.UIMan.totalBombas;
     }
-
     public Vector2 GetDireccionMovimiento()
     {
         return new Vector2(_xvalue, _yvalue).normalized;

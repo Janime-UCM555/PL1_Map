@@ -62,9 +62,11 @@
     <Compile Include="Assets\Scripts\AnimatorComponent.cs" />
     <Compile Include="Assets\Scripts\AnimatorOcktorok.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\ZoraComponent.cs" />
     <Compile Include="Assets\Scripts\BombComponent.cs" />
     <Compile Include="Assets\Scripts\TektiteMovement.cs" />
     <Compile Include="Assets\Scripts\EnterTrigger.cs" />
+    <Compile Include="Assets\Scripts\LeeverAttack.cs" />
     <Compile Include="Assets\Scripts\UI\ScriptsUI\UIManager.cs" />
     <Compile Include="Assets\Scripts\LinkMovement.cs" />
     <Compile Include="Assets\Scripts\ProjectileComponent.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Assets\Scripts\UI\ScriptsUI\LifeComponent.cs" />
     <Compile Include="Assets\Scripts\LinkImput.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\LeeverMovement.cs" />
     <Compile Include="Assets\Scripts\LinkHealth.cs" />
     <Compile Include="Assets\Scripts\ExitTrigger.cs" />
     <Compile Include="Assets\Scripts\CameraTrigger.cs" />
