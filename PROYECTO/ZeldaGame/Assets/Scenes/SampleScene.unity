@@ -49429,6 +49429,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8179714480200253155, guid: eadbe0322f5af6549b77f2e7b559f189, type: 3}
+      propertyPath: espada
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179714480200253155, guid: eadbe0322f5af6549b77f2e7b559f189, type: 3}
       propertyPath: activado
       value: 
       objectReference: {fileID: 1916905685}
@@ -50558,7 +50562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1916905686
 Transform:
   m_ObjectHideFlags: 0

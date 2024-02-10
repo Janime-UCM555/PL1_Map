@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     static private UIManager _UIManager;
     static public UIManager UIMan { get { return _UIManager; } }
     public int totalRupias;
-    public int totalBombas;
+    public int totalBombas = 0;
     [SerializeField] private GameObject spriteBomba;
     [SerializeField] private GameObject spriteEscudo;
     [SerializeField] private GameObject spriteFlecha;
