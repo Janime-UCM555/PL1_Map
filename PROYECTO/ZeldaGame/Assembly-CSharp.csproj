@@ -82,9 +82,11 @@
     <Compile Include="Assets\Scripts\LinkHealth.cs" />
     <Compile Include="Assets\Scripts\ExitTrigger.cs" />
     <Compile Include="Assets\Scripts\CameraTrigger.cs" />
+    <Compile Include="Assets\Scripts\ArrowProjectileComponent.cs" />
     <Compile Include="Assets\Scripts\UI\ScriptsUI\SwordPickUpComponent.cs" />
     <Compile Include="Assets\Scripts\OcktorokMovement.cs" />
     <Compile Include="Assets\Scripts\MoblinAttack.cs" />
+    <Compile Include="Assets\Scripts\TektiteAttack.cs" />
     <Compile Include="Assets\Scripts\ShootingComponent.cs" />
     <Compile Include="Assets\Scripts\UI\ScriptsUI\Dialog manager.cs" />
     <Compile Include="Assets\Scripts\MinimapController.cs" />

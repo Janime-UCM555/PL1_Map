@@ -63,10 +63,6 @@ public class LeeverAttack : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collider)
     {
-
-
-
-
         if (collider.gameObject.GetComponent<AttackComponent>() != null || collider.gameObject.GetComponent<SwordProjectileComponent>() != null || collider.gameObject.GetComponent<BombComponent>() != null)
         {
             if (imune > 0)
@@ -74,7 +70,7 @@ public class LeeverAttack : MonoBehaviour
                 vida--;
                 if (vida <= 0)
                 {
-                    //GetComponent<ItemDrop>().Drop(droptType);
+                    GetComponent<ItemDrop>().Drop(droptType, _myTransform);
                     EnemyDies();
                 }
                 else { imune -= 1 * Time.deltaTime; }

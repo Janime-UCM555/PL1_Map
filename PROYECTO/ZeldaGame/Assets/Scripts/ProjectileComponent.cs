@@ -40,7 +40,8 @@ public class ProjectileComponent : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collider2D) 
     {
-        if (collider2D.gameObject.GetComponent<TilemapCollider2D>() != null) { Destroy(gameObject); }
+        //Nota de Iker: He comentado esto y he puesto que se destruya el objeto en 5 seg abajo porque sino el zora no puede disparar la bala mas alla del agua
+        //if (collider2D.gameObject.GetComponent<TilemapCollider2D>() != null) { Destroy(gameObject); }
         if (collider2D.gameObject.GetComponent<CameraTrigger>() != null) { Destroy(gameObject); }
         else if(collider2D.gameObject.GetComponent<LinkHealth>() != null) { Destroy(gameObject); collider2D.gameObject.GetComponent<LinkHealth>().TakesDamage(); }
     }
@@ -54,6 +55,7 @@ public class ProjectileComponent : MonoBehaviour
     void Update()
     {
         _myTransform.position = _myTransform.position + _speed * Time.deltaTime;
+        Destroy(this.gameObject,2f);
     }
 
 

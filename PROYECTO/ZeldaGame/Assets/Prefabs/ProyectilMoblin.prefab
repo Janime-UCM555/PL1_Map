@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1793737304826870122
+--- !u!1 &2684717882769738945
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4984034298239830092}
-  - component: {fileID: -4474237530771951019}
-  - component: {fileID: 658036333784211548}
-  - component: {fileID: 2026031690561418722}
+  - component: {fileID: 4964882306731645006}
+  - component: {fileID: 6197430228466741319}
+  - component: {fileID: 9212151912789488029}
+  - component: {fileID: 9004402607968964314}
   m_Layer: 0
-  m_Name: ArrowItem
+  m_Name: ProyectilMoblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4984034298239830092
+--- !u!4 &4964882306731645006
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793737304826870122}
+  m_GameObject: {fileID: 2684717882769738945}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: -6.04, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &-4474237530771951019
+--- !u!212 &6197430228466741319
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793737304826870122}
+  m_GameObject: {fileID: 2684717882769738945}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,10 +72,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1697944251
-  m_SortingLayer: 5
+  m_SortingLayerID: 1864434225
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bca83db462b8fed4ab1b433bec3dc715, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2215276670ed0814ebec598a12b88e70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,13 +86,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &658036333784211548
+--- !u!114 &9212151912789488029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2684717882769738945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b0d659c0b5d5d4ea9e2c3a581edcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedValue: 10
+--- !u!61 &9004402607968964314
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793737304826870122}
+  m_GameObject: {fileID: 2684717882769738945}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -115,10 +128,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00018950552, y: 0.00024747849}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,22 +142,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.06402312, y: 0.18087512}
+  m_Size: {x: 0.05, y: 0.17}
   m_EdgeRadius: 0
---- !u!114 &2026031690561418722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793737304826870122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6efb980166504f643afa6b09a8039f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bomb: {fileID: 0}
-  shopeable: 0
-  precio: 0
-  identificadorTienda: 2
-  textoPrecio: {fileID: 0}
