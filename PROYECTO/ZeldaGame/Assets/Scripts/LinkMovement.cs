@@ -33,7 +33,7 @@ public class LinkMovement : MonoBehaviour
     public float HorY = -0.1f;
     public float VerX = 0.15f;
     public float VerY = 0.6f;
-    private Vector3 _lastMovement;
+    public Vector3 _lastMovement;
     private Vector3 _OriginalPosition;
     private Vector3 _OffsetVector;
     private CircleCollider2D _circleCollider;
