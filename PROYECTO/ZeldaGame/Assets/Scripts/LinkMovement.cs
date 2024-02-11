@@ -115,7 +115,7 @@ public class LinkMovement : MonoBehaviour
     public void CanPlaceBomb(bool newState)
     {
         canBomb = newState;
-        if (canBomb==true)
+        if (canBomb == true)
         {
             PlaceBomb();
         }

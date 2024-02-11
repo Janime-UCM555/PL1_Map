@@ -20,9 +20,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite corazonVacio;
     [SerializeField] private Sprite corazonMedio;
 
-    private void Start()
+    private void Awake()
     {
         _UIManager = GetComponent<UIManager>();
+    }
+    private void Start()
+    {
         CoinComponent.sumaRupia += SumarRupias;
         ShopItemComponent.restaRupia += RestarRupias;
         ShopItemComponent.sumaBomba += SumarBombas;

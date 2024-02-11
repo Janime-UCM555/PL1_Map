@@ -12,7 +12,6 @@ public class ShopItemComponent : MonoBehaviour
 
     private int cantdadBombas = 1;
     public LinkMovement _bomb;
-    [SerializeField] private bool shopeable;
     [SerializeField] private int precio;
     [SerializeField] public int identificadorTienda;
     [SerializeField] private TMP_Text textoPrecio;
@@ -23,7 +22,7 @@ public class ShopItemComponent : MonoBehaviour
         LinkMovement player = collision.gameObject.GetComponent<LinkMovement>();
         if (player != null)
         {
-            if (_uiManager.totalRupias >= precio && shopeable)
+            if (_uiManager.totalRupias >= precio)
             {
                 if (restaRupia != null)
                 {
