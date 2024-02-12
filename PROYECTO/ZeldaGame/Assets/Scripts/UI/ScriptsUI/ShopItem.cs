@@ -11,7 +11,6 @@ public class ShopItemComponent : MonoBehaviour
     public static event SumaBomba sumaBomba;
 
     private int cantdadBombas = 1;
-    public LinkMovement _bomb;
     [SerializeField] private int precio;
     [SerializeField] public int identificadorTienda;
     [SerializeField] private TMP_Text textoPrecio;
@@ -31,7 +30,7 @@ public class ShopItemComponent : MonoBehaviour
                     Destroy(this.gameObject);
                     Destroy(textoPrecio);
                     _uiManager.PonerSprite(identificadorTienda);
-                    _bomb.CanPlaceBomb(true);
+                    player.CanPlaceBomb(true);
                 }
             }
         }

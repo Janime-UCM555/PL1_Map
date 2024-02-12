@@ -47,10 +47,6 @@ public class TecktiteAttack : MonoBehaviour
             }
 
         }
-        else if (collider2D.gameObject.GetComponent<LinkHealth>() != null)
-        {
-            collider2D.gameObject.GetComponent<LinkHealth>().TakesDamage();
-        }
         imune = 1;
     }
 

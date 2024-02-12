@@ -21,7 +21,7 @@ public class LinkMovement : MonoBehaviour
     [SerializeField] private Collider2D _swordCollider;
     [SerializeField] private SpriteRenderer _swordSprite;
     private LinkInput linkInput;
-    private Vector3 vector3 = new Vector3();
+    private Vector3 retroceso = new Vector3();
     public float empuje;
 
     public Vector2 direccionMirada;
@@ -141,8 +141,8 @@ public class LinkMovement : MonoBehaviour
     {
         if (collider2D.gameObject.GetComponent<ProjectileComponent>() != null)
         {
-            vector3 = collider2D.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * empuje * SpeedValue;
-            _myRigidBody.velocity = vector3;
+            retroceso = collider2D.attachedRigidbody.velocity.normalized * empuje * SpeedValue;
+            _myRigidBody.velocity = retroceso;
         }
     }
 
@@ -175,9 +175,9 @@ public class LinkMovement : MonoBehaviour
             _xvalue = 0;
         }
         _directionVector = new Vector3(_xvalue, _yvalue);
-        _movementVector = (SpeedValue * _directionVector) + (vector3 * SpeedValue * empuje);
+        _movementVector = (SpeedValue * _directionVector);
         _myRigidBody.velocity = _movementVector;
-        vector3 = Vector3.zero;
+        retroceso = Vector3.zero;
         if (!_movement._directionVector.Equals(Vector3.zero))
         {
             _lastMovement = _movement._directionVector;

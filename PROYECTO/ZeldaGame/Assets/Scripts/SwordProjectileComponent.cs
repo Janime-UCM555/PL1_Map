@@ -33,7 +33,7 @@ public class SwordProjectileComponent : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<TilemapCollider2D>() != null || collision.gameObject.GetComponent<OcktorokAttack>() != null || collision.gameObject.GetComponent<CameraTrigger>() != null)
+        if (collision.gameObject.GetComponent<TilemapCollider2D>() != null || collision.gameObject.GetComponent<TecktiteAttack>() || collision.gameObject.GetComponent<LeeverAttack>() || collision.gameObject.GetComponent<MoblinAttack>() || collision.gameObject.GetComponent<OcktorokMovement>() != null || collision.gameObject.GetComponent<CameraTrigger>() != null)
         {
             _shotMovement = Vector3.zero;
             _animator.SetBool("SwordProjectileCollision", true);

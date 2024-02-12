@@ -33,10 +33,8 @@ public class ShieldComponent2 : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Colisión");
         if (collision.gameObject.GetComponent<ProjectileComponent>() != null)
         {
-            Debug.Log("Proyectil");
             collision.gameObject.GetComponent<ProjectileComponent>().enabled = false;
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = _linkMovement._lastMovement * 10;
             Destroy(collision.gameObject, 0.2f);

@@ -35,31 +35,9 @@ public class LeeverAttack : MonoBehaviour
     #endregion
 
     #region methods
-    //Instancia de la bala
-    public void Shoot()
-    {
-
-
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        Vector3 directionToPlayer = (_targetTransform.position - transform.position).normalized;
-        //if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.y))
-
-
-
-            bullet.GetComponent<ProjectileComponent>().Setup(directionToPlayer);
-        //Destroy(bullet, 5f);
-
-
-    }
-
-
     public void EnemyDies()
     {
         Destroy(gameObject);
-    }
-    public void OnColisionEnter2D(Collider2D collider2D)
-    {
-
     }
     public void OnTriggerEnter2D(Collider2D collider)
     {
@@ -97,32 +75,6 @@ public class LeeverAttack : MonoBehaviour
 
     void Update()
     {
-
-
-        // Calcula la distancia entre el enemigo y el jugador
-        float distanceToPlayer = Vector3.Distance(_myTransform.position, _targetTransform.position);
-
-        // Si la distancia es menor o igual a la distancia de parada, procede a cargar para disparar una bala
-        if (distanceToPlayer <= stopDistance)
-        {
-            if (reloadBullet >= shootTime)
-            {
-                _leeverMovement.StopToShoot();
-            }
-            else { _leeverMovement.NotStopToShoot(); }
-            reloadBullet -= Time.deltaTime;
-            //Si la recarga se ha completado, dispara
-            if (reloadBullet <= 0.0f)
-            {
-
-                Shoot();
-                reloadBullet = 2.0f;
-            }
-        }
-        else
-        {
-            _leeverMovement.NotStopToShoot();
-        }
 
     }
 }
